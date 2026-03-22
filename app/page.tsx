@@ -60,7 +60,7 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           placeholder={dark ? "Your email address" : "Enter your email address"}
-          autoComplete="email"
+          autoComplete={dark ? "off" : "email"}
           style={inputStyle}
         />
         <button onClick={handleSubmit} disabled={status === "loading"}>
