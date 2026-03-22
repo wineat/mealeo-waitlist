@@ -217,16 +217,15 @@ h1 em {
   border-top: 1px solid var(--warm-gray);
 }
 .stat-item {
-  padding-right: 2rem;
+  padding: 0 2rem;
   border-right: 1px solid var(--warm-gray);
+}
+.stat-item:first-child {
+  padding-left: 0;
 }
 .stat-item:last-child {
   border-right: none;
   padding-right: 0;
-  padding-left: 2rem;
-}
-.stat-item:not(:first-child):not(:last-child) {
-  padding-left: 2rem;
 }
 .stat-num {
   font-family: var(--font-serif), Georgia, serif;
@@ -764,7 +763,7 @@ footer {
   /* Hero */
   .hero { padding-top: 6rem; padding-bottom: 3rem; min-height: auto; }
   .hero-layout { grid-template-columns: 1fr; }
-  .hero-image { display: none; }
+  .hero-image { width: 72%; max-width: 300px; margin: 2rem auto 0; display: block; margin-right: 0; }
   h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
