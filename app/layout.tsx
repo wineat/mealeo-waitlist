@@ -1,32 +1,31 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Lora, DM_Mono } from "next/font/google";
+import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const sourceSans3 = Source_Sans_3({
-  variable: "--font-source-sans",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
-const lora = Lora({
-  variable: "--font-lora",
+const dmSans = DM_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
-  style: ["italic"],
-  display: "swap",
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-dm-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Mealeo — Stop counting calories.",
+  title: "Mealeo — Stop Counting Calories",
   description:
-    "Mealeo is nutritionally complete. No more tracking macros, scanning barcodes, or guessing calories. One shake gives you exactly what your body needs.",
+    "A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre, and 26 vitamins & minerals. Just scoop, shake, and sip.",
+  icons: {
+    icon: "/favicon3.png",
+    apple: "/favicon3.png",
+  },
 };
 
 export default function RootLayout({
@@ -36,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sourceSans3.variable} ${lora.variable} ${dmMono.variable} antialiased`}>
+      <body className={`${instrumentSerif.variable} ${dmSans.variable}`}>
         {children}
       </body>
     </html>
