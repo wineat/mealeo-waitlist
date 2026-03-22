@@ -54,6 +54,8 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
       <div className={dark ? "cta-form" : "waitlist-form"}>
         <input
           type="email"
+          name={dark ? "email-cta" : "email-hero"}
+          id={dark ? "email-cta" : "email-hero"}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
