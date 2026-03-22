@@ -84,6 +84,8 @@ section { padding: 6rem 2.5rem; }
   flex-shrink: 0;
   margin-right: -3rem;
 }
+.hero-title-row { display: contents; }
+.hero-image-mobile { display: none; }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -763,7 +765,9 @@ footer {
   /* Hero */
   .hero { padding-top: 6rem; padding-bottom: 3rem; min-height: auto; }
   .hero-layout { grid-template-columns: 1fr; }
-  .hero-image { width: 72%; max-width: 300px; margin: 2rem auto 0; display: block; margin-right: 0; }
+  .hero-image { display: none; }
+  .hero-title-row { display: flex; align-items: flex-end; gap: 0; }
+  .hero-image-mobile { display: block; width: 130px; height: auto; flex-shrink: 0; margin-bottom: -0.5rem; }
   h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }

@@ -242,7 +242,11 @@ export default function Home() {
               <span className="hero-eyebrow-dot" />
               Launching in India — Join the waitlist
             </div>
-            <h1>This is<br /><em>a meal.</em></h1>
+            <div className="hero-title-row">
+              <h1>This is<br /><em>a meal.</em></h1>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/shaker-hand.svg" alt="Mealeo shaker" className="hero-image-mobile" />
+            </div>
             <p className="hero-sub">A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre, and 26 vitamins &amp; minerals. Just scoop, shake, and sip.</p>
             <WaitlistForm />
             <div className="hero-stats">
