@@ -782,7 +782,7 @@ footer {
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
   .waitlist-form input { padding: 0.9rem 1.25rem; border-radius: 12px; }
   .waitlist-form button { border-radius: 12px; text-align: center; padding: 0.9rem 1.25rem; }
-  .hero-eyebrow { margin-top: 0.5rem; }
+  .hero-eyebrow { margin-top: 2rem; }
 
   /* Hero stats */
   .hero-stats { grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
