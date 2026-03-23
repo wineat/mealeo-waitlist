@@ -208,8 +208,10 @@ const marqueeItems = [
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const ctaRef = useRef<HTMLElement>(null);
+  const benefitsRef = useRef<HTMLDivElement>(null);
   const [heroVisible, setHeroVisible] = useState(true);
   const [ctaVisible, setCtaVisible] = useState(false);
+  const [benefitsPage, setBenefitsPage] = useState(0);
 
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => setHeroVisible(e.isIntersecting), { threshold: 0 });
@@ -218,6 +220,12 @@ export default function Home() {
     if (ctaRef.current) obs2.observe(ctaRef.current);
     return () => { obs.disconnect(); obs2.disconnect(); };
   }, []);
+
+  const handleBenefitsScroll = () => {
+    const el = benefitsRef.current;
+    if (!el) return;
+    setBenefitsPage(Math.round(el.scrollLeft / el.offsetWidth));
+  };
 
   const showNavCta = !heroVisible && !ctaVisible;
 
@@ -306,21 +314,37 @@ export default function Home() {
       <section className="benefits-section">
         <div className="container">
           <h2 className="benefits-heading">What you get</h2>
-          <div className="benefits-grid">
-            {[
-              { n: "01", title: "Complete Nutrition", desc: "Balanced macros and essential micronutrients in every serving." },
-              { n: "02", title: "Ready in Seconds", desc: "No cooking. No preparation. Scoop, shake, sip." },
-              { n: "03", title: "Actually Filling", desc: "30g protein and slow-release carbs keep you satisfied for hours." },
-              { n: "04", title: "No Calorie Counting", desc: "The nutrition is pre-calculated." },
-              { n: "05", title: "Actually Tastes Good", desc: "A smooth, rich chocolate shake — not chalky, not synthetic." },
-              { n: "06", title: "Plant-Based", desc: "100% vegan. Better for you and the planet." },
-            ].map(({ n, title, desc }) => (
-              <div className="benefit-card" key={n}>
-                <span className="benefit-num">{n}</span>
-                <div className="benefit-title">{title}</div>
-                <div className="benefit-desc">{desc}</div>
-              </div>
-            ))}
+          <div className="benefits-slider" ref={benefitsRef} onScroll={handleBenefitsScroll}>
+            <div className="benefits-page">
+              {[
+                { n: "01", title: "Complete Nutrition", desc: "Balanced macros and essential micronutrients in every serving." },
+                { n: "02", title: "Ready in Seconds", desc: "No cooking. No preparation. Scoop, shake, sip." },
+                { n: "03", title: "Actually Filling", desc: "30g protein and slow-release carbs keep you satisfied for hours." },
+              ].map(({ n, title, desc }) => (
+                <div className="benefit-card" key={n}>
+                  <span className="benefit-num">{n}</span>
+                  <div className="benefit-title">{title}</div>
+                  <div className="benefit-desc">{desc}</div>
+                </div>
+              ))}
+            </div>
+            <div className="benefits-page">
+              {[
+                { n: "04", title: "No Calorie Counting", desc: "The nutrition is pre-calculated." },
+                { n: "05", title: "Actually Tastes Good", desc: "A smooth, rich chocolate shake — not chalky, not synthetic." },
+                { n: "06", title: "Plant-Based", desc: "100% vegan. Better for you and the planet." },
+              ].map(({ n, title, desc }) => (
+                <div className="benefit-card" key={n}>
+                  <span className="benefit-num">{n}</span>
+                  <div className="benefit-title">{title}</div>
+                  <div className="benefit-desc">{desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="benefits-dots">
+            <span className={`benefits-dot${benefitsPage === 0 ? " active" : ""}`} />
+            <span className={`benefits-dot${benefitsPage === 1 ? " active" : ""}`} />
           </div>
         </div>
       </section>
