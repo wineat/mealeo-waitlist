@@ -20,6 +20,7 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* NAV */
@@ -759,7 +760,7 @@ footer {
   /* Nav */
   nav { padding: 0.2rem 1.25rem; justify-content: center; }
   nav img { height: 3rem !important; }
-  .nav-cta { position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); }
+  .nav-cta { position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); font-size: 0.6rem; letter-spacing: 0.04em; }
 
   /* Sections */
   section { padding: 3.5rem 1.25rem; }
@@ -769,7 +770,7 @@ footer {
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
   .hero-title-row { display: block; }
-  .hero-image-mobile { display: block; width: 140px; height: auto; margin: 1rem auto 0; border: none; outline: none; box-shadow: none; mix-blend-mode: multiply; }
+  .hero-image-mobile { display: block; width: 140px; height: auto; margin: 1rem auto 0; border: none; outline: none; box-shadow: none; }
   h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
@@ -788,8 +789,10 @@ footer {
   .problem-layout { grid-template-columns: 1fr; gap: 2.5rem; }
 
   /* Benefits */
-  .benefits-grid { grid-template-columns: 1fr; }
-  .benefit-card { border-top: none; border-bottom: 1px solid rgba(255,255,255,0.06); border-left: 2px solid transparent; transition: border-color 0.25s ease, background 0.25s ease; }
+  .benefits-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; gap: 0; border-radius: 0; background: transparent; }
+  .benefits-grid::-webkit-scrollbar { display: none; }
+  .benefit-card { flex: 0 0 85vw; scroll-snap-align: start; border-top: none; border-right: 1px solid rgba(255,255,255,0.06); border-bottom: none; border-left: 2px solid transparent; border-radius: 16px; margin-right: 0.75rem; }
+  .benefit-card:last-child { margin-right: 0; }
   .benefit-card:hover { border-left-color: var(--accent); border-top-color: transparent; }
 
   /* Ingredients */

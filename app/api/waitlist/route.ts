@@ -55,8 +55,8 @@ export async function POST(req: NextRequest) {
         <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
           <!-- Header -->
           <tr>
-            <td style="background:#fafaf8;padding:20px 40px;border-bottom:1px solid #e8e6e0;">
-              <img src="https://mealeo.co/logo.png" alt="Mealeo" width="189" height="47" style="display:block;border:0;" />
+            <td style="background:#fafaf8;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
+              <img src="https://mealeo.co/logo.png" alt="Mealeo" width="189" height="47" style="display:inline-block;border:0;margin:0 auto;" />
             </td>
           </tr>
           <!-- Body -->
@@ -66,20 +66,23 @@ export async function POST(req: NextRequest) {
                 You're on the list.
               </h1>
               <p style="margin:0 0 24px;font-family:Arial,sans-serif;font-size:16px;color:#555;line-height:1.7;">
-                Welcome to the Mealeo waitlist. You're among the first to know when we launch — and that comes with perks.
+                Welcome to the Mealeo waitlist. You're among the first to hear when we launch — and that comes with a few perks.
               </p>
               <table cellpadding="0" cellspacing="0" style="background:#FAF7F2;border-radius:8px;width:100%;">
                 <tr>
                   <td style="padding:24px 28px;">
                     <p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#1A1A1A;text-transform:uppercase;letter-spacing:1px;">What to expect</p>
-                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">🎁 <strong>Early-bird pricing</strong> — exclusive launch discounts before we go public.</p>
-                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">📦 <strong>First batch access</strong> — secure your order before stock runs out.</p>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">💌 <strong>Insider updates</strong> — behind-the-scenes nutrition & launch news.</p>
+                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">🎁 <strong>Early-bird pricing</strong> — exclusive launch pricing before we go public.</p>
+                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">📦 <strong>First batch access</strong> — secure your order before the first batch sells out.</p>
+                    <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">💌 <strong>Insider updates</strong> — behind-the-scenes product, nutrition, and launch news.</p>
                   </td>
                 </tr>
               </table>
               <p style="margin:28px 0 0;font-family:Arial,sans-serif;font-size:15px;color:#555;line-height:1.7;">
-                In the meantime, if you have questions you can reply to this email. We read every one.
+                <a href="https://www.instagram.com/mealeo.co/" style="display:inline-flex;align-items:center;gap:8px;color:#C13584;text-decoration:none;font-weight:500;">
+                  <img src="https://mealeo.co/ig-icon.svg" alt="Instagram" width="20" height="20" style="display:inline-block;vertical-align:middle;border:0;" />
+                  Have questions? DM us on Instagram @mealeo
+                </a>
               </p>
             </td>
           </tr>

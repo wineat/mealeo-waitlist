@@ -148,14 +148,14 @@ function MacroBars() {
 // ── Ingredients scroll ────────────────────────────────────────────────────────
 
 const ingredients = [
-  { img: "/ingredients/oats.png", name: "Oat Flour" },
-  { img: "/ingredients/green pea.png", name: "Pea Protein" },
-  { img: "/ingredients/flaxseeds.png", name: "Flaxseeds" },
-  { img: "/ingredients/coconut.png", name: "Coconut" },
-  { img: "/ingredients/Brown rice.png", name: "Brown Rice Protein" },
-  { img: "/ingredients/Sunflower seeds.png", name: "Sunflower Seeds" },
-  { img: "/ingredients/Tapioca.png", name: "Tapioca" },
-  { img: "/ingredients/yeast.png", name: "Yeast Protein" },
+  { img: "/ingredients/oats.avif", name: "Oat Flour" },
+  { img: "/ingredients/peas.avif", name: "Pea Protein" },
+  { img: "/ingredients/flaxseeds.avif", name: "Flaxseeds" },
+  { img: "/ingredients/coconut.avif", name: "Coconut" },
+  { img: "/ingredients/Brown rice.avif", name: "Brown Rice Protein" },
+  { img: "/ingredients/Sunflower seeds.avif", name: "Sunflower Seeds" },
+  { img: "/ingredients/Tapioca.avif", name: "Tapioca" },
+  { img: "/ingredients/yeast.avif", name: "Yeast Protein" },
 ];
 
 function IngredientsScroll() {
@@ -177,7 +177,7 @@ function IngredientsScroll() {
         {ingredients.map(({ img, name }) => (
           <div className="ing-item" key={name}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img} alt={name} className="ing-img" />
+            <img src={img} alt={name} className="ing-img" loading="lazy" />
             <span className="ing-name">{name}</span>
           </div>
         ))}
@@ -245,7 +245,7 @@ export default function Home() {
             <div className="hero-title-row">
               <h1>This is<br /><em>a meal.</em></h1>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/shaker-hand.svg" alt="Mealeo shaker" className="hero-image-mobile" />
+              <img src="/shaker.png" alt="Mealeo shaker" className="hero-image-mobile" />
             </div>
             <p className="hero-sub">A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre, and 26 vitamins &amp; minerals. Just scoop, shake, and sip.</p>
             <WaitlistForm />
