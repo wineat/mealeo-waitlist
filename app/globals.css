@@ -227,8 +227,12 @@ h1 em {
   align-items: flex-start;
   justify-content: center;
 }
+.stat-item:first-child {
+  padding-left: 0;
+}
 .stat-item:last-child {
   border-right: none;
+  padding-right: 0;
 }
 .stat-num {
   font-family: var(--font-serif), Georgia, serif;
