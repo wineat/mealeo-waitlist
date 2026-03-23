@@ -53,6 +53,12 @@ export async function POST(req: NextRequest) {
     <tr>
       <td align="center">
         <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+          <!-- Header -->
+          <tr>
+            <td style="background:#fafaf8;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
+              <img src="https://mealeo.co/logo.png" alt="Mealeo" width="189" height="47" style="display:inline-block;border:0;margin:0 auto;" />
+            </td>
+          </tr>
           <!-- Body -->
           <tr>
             <td style="padding:40px 40px 32px;">
@@ -83,7 +89,9 @@ export async function POST(req: NextRequest) {
               <p style="margin:0 0 20px;font-family:Arial,sans-serif;font-size:13px;color:#999;">
                 You're receiving this because you joined the Mealeo waitlist. No spam, ever.
               </p>
-              <img src="https://mealeo.co/logo.png" alt="Mealeo" width="150" height="37" style="display:inline-block;border:0;" />
+              <a href="https://www.instagram.com/mealeo.co/" style="display:inline-block;border:0;">
+                <img src="https://mealeo.co/ig-icon.svg" alt="Instagram" width="28" height="28" style="display:block;border:0;" />
+              </a>
             </td>
           </tr>
         </table>
