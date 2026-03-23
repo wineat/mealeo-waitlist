@@ -772,7 +772,7 @@ footer {
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
   .hero-title-row { display: flex; align-items: flex-end; justify-content: space-between; }
-  .hero-image-mobile { display: block; width: 110px; height: auto; flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-bottom: -0.5rem; }
+  .hero-image-mobile { display: block; width: 110px; height: auto; flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-bottom: -0.5rem; margin-right: -1rem; }
   h1 { font-size: clamp(2.8rem, 11vw, 4rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
@@ -794,9 +794,12 @@ footer {
   .benefits-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; background: transparent; border-radius: 0; gap: 0; }
   .benefits-slider::-webkit-scrollbar { display: none; }
   .benefits-page { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
-  .benefit-card { border-top: none; border-left: 2px solid transparent; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0; margin-right: 0; flex: unset; }
+  .benefit-card { padding: 1.25rem 1.25rem; border-top: none; border-left: 2px solid transparent; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0; margin-right: 0; flex: unset; }
   .benefit-card:last-child { border-bottom: none; }
   .benefit-card:hover { border-left-color: var(--accent); border-top-color: transparent; }
+  .benefit-num { margin-bottom: 0.75rem; }
+  .benefit-title { font-size: 0.95rem; }
+  .benefit-desc { font-size: 0.82rem; }
   .benefits-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1.25rem; }
   .benefits-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.25); transition: background 0.3s; flex-shrink: 0; }
   .benefits-dot.active { background: rgba(255,255,255,0.9); }
