@@ -766,9 +766,9 @@ footer {
   .hero { padding-top: 6rem; padding-bottom: 3rem; min-height: auto; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
-  .hero-title-row { display: flex; align-items: flex-end; gap: 0; }
-  .hero-image-mobile { display: block; width: 130px; height: auto; flex-shrink: 0; margin-bottom: -0.5rem; }
-  h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .hero-title-row { display: block; }
+  .hero-image-mobile { display: block; width: 140px; height: auto; margin: 1rem auto 0; border: none; outline: none; }
+  h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
   .waitlist-form input { padding: 0.9rem 1.25rem; border-radius: 12px; }
@@ -778,10 +778,8 @@ footer {
   /* Hero stats */
   .hero-stats { grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
   .stat-item { padding: 1rem 0; border-right: none; border-bottom: 1px solid var(--warm-gray); }
-  .stat-item:last-child { padding-left: 0; border-bottom: none; }
-  .stat-item:not(:first-child):not(:last-child) { padding-left: 0; }
-  .stat-item:nth-child(odd) { padding-right: 1rem; border-right: 1px solid var(--warm-gray); }
-  .stat-item:nth-child(even) { padding-left: 1rem; }
+  .stat-item:nth-child(odd) { padding-left: 0; padding-right: 1rem; border-right: 1px solid var(--warm-gray); }
+  .stat-item:nth-child(even) { padding-left: 1rem; padding-right: 0; border-right: none; }
   .stat-item:nth-last-child(-n+2) { border-bottom: none; }
 
   /* Problem */
