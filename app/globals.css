@@ -775,8 +775,8 @@ footer {
   .hero { padding-top: 4rem; padding-bottom: 3rem; min-height: auto; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
-  .hero-title-row { display: flex; align-items: flex-end; justify-content: space-between; }
-  .hero-image-mobile { display: block; width: auto; height: 11rem; flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-bottom: -0.5rem; margin-right: -1rem; }
+  .hero-title-row { display: flex; align-items: flex-start; justify-content: space-between; }
+  .hero-image-mobile { display: block; width: auto; height: calc(2 * clamp(5.5rem, 22vw, 9rem)); flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-right: -1rem; }
   h1 { font-size: clamp(5.5rem, 22vw, 9rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
