@@ -81,20 +81,22 @@ export async function POST(req: NextRequest) {
     subject: "You're on the Mealeo waitlist 🎉",
     html: `
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="color-scheme:light;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="color-scheme" content="light" />
+  <meta name="supported-color-schemes" content="light" />
   <title>Welcome to Mealeo</title>
 </head>
-<body style="margin:0;padding:0;background-color:#FAF7F2;font-family:Georgia,serif;">
+<body style="margin:0;padding:0;background-color:#FAF7F2;font-family:Georgia,serif;color-scheme:light;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAF7F2;padding:48px 16px;">
     <tr>
       <td align="center">
         <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
           <!-- Header -->
           <tr>
-            <td style="background:#fafaf8;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
+            <td style="background:#fafaf8 !important;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
               <img src="https://mealeo.co/logo.png" alt="Mealeo" width="189" height="47" style="display:inline-block;border:0;margin:0 auto;" />
             </td>
           </tr>

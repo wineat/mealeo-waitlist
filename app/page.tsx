@@ -79,7 +79,7 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
 // ── FAQ accordion ─────────────────────────────────────────────────────────────
 
 const faqs = [
-  { q: "What is Mealeo, exactly?", a: "Mealeo is a nutritionally complete powdered food containing all the proteins, carbs, and fats your body needs, plus at least 100% of the Indian Recommended Dietary Allowances (RDA) for 26 essential vitamins and minerals. You won't be deficient in any essential nutrient." },
+  { q: "What is Mealeo, exactly?", a: "Mealeo is a complete meal in powder form. You mix it with water to get a balanced mix of protein, carbs, fats, fibre, and 26 essential vitamins and minerals your body needs, designed for when you don’t have the time or energy to cook without compromising on nutrition." },
   { q: "Is this just another protein shake?", a: "No. Mealeo isn't a supplement — it's a complete meal. It delivers all the macronutrients and essential micronutrients your body needs to stay full and energised, not just protein." },
   { q: "Why would I drink a meal instead of eating real food?", a: "You still can. Mealeo is simply a convenient, healthy option for when cooking, planning, or ordering food isn't possible. It's made for busy days, lazy nights, or any time you want balanced nutrition without the hassle." },
   { q: "Is it safe? What's in it?", a: "Yes. We use high-quality, 100% vegan ingredients and undergo regular testing. All ingredients are carefully selected for quality and nutrition, with no preservatives or hidden blends. The full ingredient list will be shared before launch." },
@@ -214,6 +214,10 @@ export default function Home() {
   const [benefitsPage, setBenefitsPage] = useState(0);
 
   useEffect(() => {
+    // Prevent Safari from restoring scroll position on refresh when a hash is in the URL
+    if (typeof window !== "undefined" && "scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
     const obs = new IntersectionObserver(([e]) => setHeroVisible(e.isIntersecting), { threshold: 0 });
     if (heroRef.current) obs.observe(heroRef.current);
     const obs2 = new IntersectionObserver(([e]) => setCtaVisible(e.isIntersecting), { threshold: 0 });
@@ -239,6 +243,7 @@ export default function Home() {
           href="#cta"
           className="nav-cta"
           style={{ opacity: showNavCta ? 1 : 0, pointerEvents: showNavCta ? "auto" : "none", transition: "opacity 0.3s ease" }}
+          onClick={(e) => { e.preventDefault(); document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" }); }}
         >Join waitlist</a>
       </nav>
 
