@@ -79,8 +79,8 @@ export async function POST(req: NextRequest) {
                 </tr>
               </table>
               <p style="margin:28px 0 0;font-family:Arial,sans-serif;font-size:15px;color:#555;line-height:1.7;">
-                <a href="https://www.instagram.com/mealeo.co/" style="display:inline-flex;align-items:center;gap:14px;color:#1A1A1A;text-decoration:none;font-weight:500;">
-                  <img src="https://mealeo.co/ig-icon.svg" alt="Instagram" width="20" height="20" style="display:inline-block;vertical-align:middle;border:0;" />
+                <a href="https://www.instagram.com/mealeo.co/" style="display:inline-flex;align-items:center;gap:10px;color:#1A1A1A;text-decoration:none;font-weight:500;">
+                  <img src="https://mealeo.co/ig-icon.svg" alt="Instagram" width="16" height="16" style="display:inline-block;vertical-align:middle;border:0;flex-shrink:0;" />
                   Have questions? DM us on Instagram @mealeo.co
                 </a>
               </p>
