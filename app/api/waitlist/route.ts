@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
                 You're receiving this because you joined the Mealeo waitlist. No spam, ever.
               </p>
               <a href="https://www.instagram.com/mealeo.co/" style="display:inline-block;border:0;">
-                <img src="https://mealeo.co/ig-icon.svg" alt="Instagram" width="28" height="28" style="display:block;border:0;" />
+                <img src="https://mealeo.co/ig-icon.png" alt="Instagram" width="28" height="28" style="display:block;border:0;" />
               </a>
             </td>
           </tr>
