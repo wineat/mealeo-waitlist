@@ -757,23 +757,24 @@ footer {
 
 @media (max-width: 768px) {
   /* Nav */
-  nav { padding: 0.5rem 1.25rem; }
+  nav { padding: 0.2rem 1.25rem; }
+  nav img { height: 3rem !important; }
 
   /* Sections */
   section { padding: 3.5rem 1.25rem; }
 
   /* Hero */
-  .hero { padding-top: 6rem; padding-bottom: 3rem; min-height: auto; }
+  .hero { padding-top: 4rem; padding-bottom: 3rem; min-height: auto; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
   .hero-title-row { display: block; }
-  .hero-image-mobile { display: block; width: 140px; height: auto; margin: 1rem auto 0; border: none; outline: none; }
+  .hero-image-mobile { display: block; width: 140px; height: auto; margin: 1rem auto 0; border: none; outline: none; box-shadow: none; mix-blend-mode: multiply; }
   h1 { font-size: clamp(2.2rem, 9vw, 3rem); }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
   .waitlist-form input { padding: 0.9rem 1.25rem; border-radius: 12px; }
   .waitlist-form button { border-radius: 12px; text-align: center; padding: 0.9rem 1.25rem; }
-  .hero-eyebrow { margin-top: calc(1rem + 16px); }
+  .hero-eyebrow { margin-top: 0.5rem; }
 
   /* Hero stats */
   .hero-stats { grid-template-columns: repeat(2, 1fr); margin-top: 3rem; }
