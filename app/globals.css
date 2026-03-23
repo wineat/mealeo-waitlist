@@ -776,8 +776,8 @@ footer {
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
   .hero-title-row { display: flex; align-items: flex-start; justify-content: space-between; }
-  .hero-image-mobile { display: block; width: auto; height: calc(2 * clamp(5.5rem, 22vw, 9rem)); flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-right: 0.75rem; margin-left: -12px; }
-  h1 { font-size: clamp(5.5rem, 22vw, 9rem); }
+  .hero-image-mobile { display: block; width: auto; height: calc(2 * clamp(3rem, 19vw, 9rem)); flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-right: 0.75rem; margin-left: -12px; }
+  h1 { font-size: clamp(3rem, 19vw, 9rem); white-space: nowrap; }
   .hero-sub { font-size: 1rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
   .waitlist-form input { padding: 0.9rem 1.25rem; border-radius: 12px; }
