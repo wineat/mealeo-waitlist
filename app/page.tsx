@@ -332,7 +332,7 @@ export default function Home() {
             <h2>Busy days make eating well harder.</h2>
           </div>
           <div className="problem-list">
-            {["Counting macros and scanning barcodes", "Ordering takeout because there\u2019s no time", "Skipping meals on busy days"].map((item) => (
+            {["Skipping meals on busy days", "Ordering food because there\u2019s no time", "Counting macros, trying to get it right"].map((item) => (
               <div className="problem-list-item crossed" key={item}>
                 <span className="problem-list-text">{item}</span>
               </div>
