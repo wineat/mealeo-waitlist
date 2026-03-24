@@ -135,7 +135,7 @@ function MacroBars() {
           <div className="macro-bar-header">
             <strong>{label}</strong><span>{value}</span>
           </div>
-          <div className={`macro-bar-track${segments ? " macro-bar-track--split" : ""}`}>
+          <div className="macro-bar-track">
             {segments ? (
               <div
                 className={`macro-bar-split${animated ? " animate" : ""}`}
@@ -146,10 +146,7 @@ function MacroBars() {
                     key={seg.label}
                     className={`macro-bar-segment${seg.accent ? " accent" : ""}`}
                     style={{ flex: seg.flex }}
-                  >
-                    <span className="macro-bar-seg-label">{seg.label}</span>
-                    <span className="macro-bar-seg-value">{seg.value}</span>
-                  </div>
+                  />
                 ))}
               </div>
             ) : (
@@ -159,6 +156,19 @@ function MacroBars() {
               />
             )}
           </div>
+          {segments && (
+            <div className="macro-bar-seg-labels" style={{ width: `${width * 100}%` }}>
+              {segments.map(seg => (
+                <div
+                  key={seg.label}
+                  className={`macro-bar-seg-label${seg.accent ? " accent" : ""}`}
+                  style={{ flex: seg.flex }}
+                >
+                  {seg.label} {seg.value}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </div>
