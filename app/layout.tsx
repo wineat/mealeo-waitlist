@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mealeo — Stop Counting Calories",
+  title: "Mealeo | A Complete Meal for busy days",
   description:
     "A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre, and 26 vitamins & minerals. Just scoop, shake, and sip.",
   icons: {
