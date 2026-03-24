@@ -557,14 +557,26 @@ h1 em {
   position: relative;
 }
 .macro-bar-fill.animate { transform: scaleX(1); }
-.macro-bar-subs { display: flex; gap: 1.25rem; margin-top: 6px; padding-left: 0.75rem; }
+.macro-bar-split {
+  display: flex;
+  gap: 3px;
+  height: 100%;
+  width: 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.macro-bar-split.animate { transform: scaleX(1); }
+.macro-bar-segment { height: 100%; border-radius: 100px; background: var(--black); }
+.macro-bar-segment.accent { background: var(--accent-dark); }
+.macro-bar-subs { display: flex; gap: 1.25rem; margin-top: 6px; }
 .macro-bar-sub-row {
   display: flex;
   gap: 0.3rem;
   font-size: 0.75rem;
   color: var(--text-muted);
 }
-.macro-bar-sub-row.accent-val span:last-child { color: var(--accent-dark); font-weight: 500; }
+.macro-bar-sub-row.accent-val span { color: var(--accent-dark); font-weight: 500; }
 .macro-bar-sub {
   display: flex;
   justify-content: space-between;

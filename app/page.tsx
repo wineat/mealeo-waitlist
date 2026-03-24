@@ -106,8 +106,11 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 const macros = [
   { label: "Protein", value: "30g", width: 0.72 },
-  { label: "Total Carbs", value: "45g", width: 0.84, subs: [{ label: "Complex carbs", value: "35g" }, { label: "Dietary fibre", value: "10g" }] },
   { label: "Healthy fats", value: "13g", width: 0.42 },
+  { label: "Total Carbs", value: "45g", width: 0.84, segments: [
+    { label: "Complex carbs", value: "35g", flex: 35, accent: false },
+    { label: "Dietary fibre", value: "10g", flex: 10, accent: true },
+  ]},
 ];
 
 function MacroBars() {
@@ -127,22 +130,37 @@ function MacroBars() {
 
   return (
     <div className="macro-bars" ref={ref}>
-      {macros.map(({ label, value, width, subs }) => (
+      {macros.map(({ label, value, width, segments }) => (
         <div className="macro-bar-row" key={label}>
           <div className="macro-bar-header">
             <strong>{label}</strong><span>{value}</span>
           </div>
           <div className="macro-bar-track">
-            <div
-              className={`macro-bar-fill${animated ? " animate" : ""}`}
-              style={animated ? { transform: `scaleX(${width})` } : {}}
-            />
+            {segments ? (
+              <div
+                className={`macro-bar-split${animated ? " animate" : ""}`}
+                style={animated ? { transform: `scaleX(${width})` } : {}}
+              >
+                {segments.map(seg => (
+                  <div
+                    key={seg.label}
+                    className={`macro-bar-segment${seg.accent ? " accent" : ""}`}
+                    style={{ flex: seg.flex }}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div
+                className={`macro-bar-fill${animated ? " animate" : ""}`}
+                style={animated ? { transform: `scaleX(${width})` } : {}}
+              />
+            )}
           </div>
-          {subs && (
+          {segments && (
             <div className="macro-bar-subs">
-              {subs.map((sub, i) => (
-                <div className={`macro-bar-sub-row${i === 1 ? " accent-val" : ""}`} key={sub.label}>
-                  <span>{sub.label}</span><span>{sub.value}</span>
+              {segments.map(seg => (
+                <div className={`macro-bar-sub-row${seg.accent ? " accent-val" : ""}`} key={seg.label}>
+                  <span>{seg.label}</span><span>{seg.value}</span>
                 </div>
               ))}
             </div>
