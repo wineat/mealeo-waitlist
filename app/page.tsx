@@ -354,7 +354,7 @@ export default function Home() {
               {[
                 { n: "01", title: "Complete Nutrition", desc: "Balanced macros and essential micronutrients in every serving." },
                 { n: "02", title: "Ready in Seconds", desc: "No cooking. No preparation. Scoop, shake, sip." },
-                { n: "03", title: "Actually Filling", desc: "30g protein and slow-release carbs keep you satisfied for hours." },
+                { n: "03", title: "Keeps you Full", desc: "30g protein and slow-release carbs for lasting fullness." },
               ].map(({ n, title, desc }) => (
                 <div className="benefit-card" key={n}>
                   <span className="benefit-num">{n}</span>
