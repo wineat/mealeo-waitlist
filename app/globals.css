@@ -557,14 +557,14 @@ h1 em {
   position: relative;
 }
 .macro-bar-fill.animate { transform: scaleX(1); }
-.macro-bar-subs { display: flex; flex-direction: column; gap: 2px; margin-top: 6px; }
+.macro-bar-subs { display: flex; gap: 1.25rem; margin-top: 6px; padding-left: 0.75rem; }
 .macro-bar-sub-row {
   display: flex;
-  justify-content: space-between;
+  gap: 0.3rem;
   font-size: 0.75rem;
   color: var(--text-muted);
-  padding-left: 0.75rem;
 }
+.macro-bar-sub-row.accent-val span:last-child { color: var(--accent-dark); font-weight: 500; }
 .macro-bar-sub {
   display: flex;
   justify-content: space-between;

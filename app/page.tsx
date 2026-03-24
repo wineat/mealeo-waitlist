@@ -140,8 +140,8 @@ function MacroBars() {
           </div>
           {subs && (
             <div className="macro-bar-subs">
-              {subs.map(sub => (
-                <div className="macro-bar-sub-row" key={sub.label}>
+              {subs.map((sub, i) => (
+                <div className={`macro-bar-sub-row${i === 1 ? " accent-val" : ""}`} key={sub.label}>
                   <span>{sub.label}</span><span>{sub.value}</span>
                 </div>
               ))}
