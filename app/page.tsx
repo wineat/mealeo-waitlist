@@ -106,9 +106,8 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 const macros = [
   { label: "Protein", value: "30g", width: 0.72 },
-  { label: "Complex carbs", value: "35g", width: 0.68 },
+  { label: "Total Carbs", value: "45g", width: 0.84, subs: [{ label: "Complex carbs", value: "35g" }, { label: "Dietary fibre", value: "10g" }] },
   { label: "Healthy fats", value: "13g", width: 0.42 },
-  { label: "Dietary fibre", value: "10g", width: 0.40 },
 ];
 
 function MacroBars() {
@@ -128,7 +127,7 @@ function MacroBars() {
 
   return (
     <div className="macro-bars" ref={ref}>
-      {macros.map(({ label, value, width }) => (
+      {macros.map(({ label, value, width, subs }) => (
         <div className="macro-bar-row" key={label}>
           <div className="macro-bar-header">
             <strong>{label}</strong><span>{value}</span>
@@ -139,6 +138,15 @@ function MacroBars() {
               style={animated ? { transform: `scaleX(${width})` } : {}}
             />
           </div>
+          {subs && (
+            <div className="macro-bar-subs">
+              {subs.map(sub => (
+                <div className="macro-bar-sub-row" key={sub.label}>
+                  <span>{sub.label}</span><span>{sub.value}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </div>
