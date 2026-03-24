@@ -366,7 +366,7 @@ export default function Home() {
             <div className="benefits-page">
               {[
                 { n: "04", title: "No Calorie Counting", desc: "The nutrition is pre-calculated." },
-                { n: "05", title: "Actually Tastes Good", desc: "A smooth, rich chocolate shake — not chalky, not synthetic." },
+                { n: "05", title: "Taste", desc: "Smooth chocolate, made with Indonesian cocoa." },
                 { n: "06", title: "Plant-Based", desc: "100% vegan. Better for you and the planet." },
               ].map(({ n, title, desc }) => (
                 <div className="benefit-card" key={n}>
