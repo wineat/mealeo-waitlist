@@ -79,14 +79,14 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
 // ── FAQ accordion ─────────────────────────────────────────────────────────────
 
 const faqs = [
-  { q: "What is Mealeo, exactly?", a: "Mealeo is a complete meal in powder form. You mix it with water to get a balanced mix of protein, carbs, fats, fibre, and 26 essential vitamins and minerals your body needs, designed for when you don’t have the time or energy to cook without compromising on nutrition." },
+  { q: "What is Mealeo, exactly?", a: "Mealeo is a complete meal in powder form. You mix it with water to get a balanced mix of protein, carbs, fats, fibre and 26 essential vitamins and minerals your body needs, designed for when you don’t have the time or energy to cook without compromising on nutrition." },
   { q: "Is this just another protein shake?", a: "No. Mealeo isn't a supplement — it's a complete meal. It delivers all the macronutrients and essential micronutrients your body needs to stay full and energised, not just protein." },
   { q: "Why would I drink a meal instead of eating real food?", a: "You still can. Mealeo is simply a convenient, healthy option for when cooking, planning, or ordering food isn't possible. It's made for busy days, lazy nights, or any time you want balanced nutrition without the hassle." },
   { q: "Is it safe? What's in it?", a: "Yes. We use high-quality, 100% vegan ingredients and undergo regular testing. All ingredients are carefully selected for quality and nutrition, with no preservatives or hidden blends. The full ingredient list will be shared before launch." },
   { q: "How much will it cost?", a: "Final pricing will be announced at launch. Mealeo is designed to be more affordable than most takeout meals or nutrition packs, without compromising on quality. Early waitlisters will receive special launch offers." },
-  { q: "What if I have dietary restrictions?", a: "Mealeo is free from animal products, soy, dairy, eggs, and added sugar, making it suitable for people with complex dietary requirements. The full ingredient list will be shared before launch so you can review it easily." },
-  { q: "How long does it take to prepare?", a: "Less than 15 seconds. Scoop, shake, and sip. No blender or prep needed — just a shaker bottle and water." },
-  { q: "Why should I join the waitlist now?", a: "The waitlist gives you front-row access to Mealeo's launch, early-bird pricing, and insider updates. It's the easiest way to secure your spot before the first batch sells out." },
+  { q: "What if I have dietary restrictions?", a: "Mealeo is free from animal products, soy, dairy, eggs and added sugar, making it suitable for people with complex dietary requirements. The full ingredient list will be shared before launch so you can review it easily." },
+  { q: "How long does it take to prepare?", a: "Less than 15 seconds. Scoop, shake and sip. No blender or prep needed — just a shaker bottle and water." },
+  { q: "Why should I join the waitlist now?", a: "The waitlist gives you front-row access to Mealeo's launch, early-bird pricing and insider updates. It's the easiest way to secure your spot before the first batch sells out." },
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
@@ -191,7 +191,11 @@ const ingredients = [
 function IngredientsScroll() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const scroll = (dir: "left" | "right") => {
-    scrollRef.current?.scrollBy({ left: dir === "right" ? 260 : -260, behavior: "smooth" });
+    const el = scrollRef.current;
+    if (!el) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const target = Math.max(0, Math.min(maxScroll, el.scrollLeft + (dir === "right" ? 260 : -260)));
+    el.scrollTo({ left: target, behavior: "smooth" });
   };
   return (
     <div className="ing-scroll-wrap">
@@ -290,7 +294,7 @@ export default function Home() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/shaker.png" alt="Mealeo shaker" className="hero-image-mobile" />
             </div>
-            <p className="hero-sub">A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre, and 26 vitamins &amp; minerals. Just scoop, shake, and sip.</p>
+            <p className="hero-sub">A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre and 26 vitamins &amp; minerals. Just scoop, shake and sip.</p>
             <WaitlistForm />
             <div className="hero-stats">
               <div className="stat-item">
@@ -400,7 +404,7 @@ export default function Home() {
         <div className="container macro-layout">
           <div className="macro-text">
             <h2>The perfect balance,<br />pre-calculated.</h2>
-            <p>We&apos;ve done the research so you don&apos;t have to. Every serving of Mealeo is a precision-engineered balance of protein, healthy fats, and slow-release carbs — formulated to cover your daily nutritional needs with 26 essential vitamins and minerals.</p>
+            <p>We&apos;ve done the research so you don&apos;t have to. Every serving of Mealeo is a precision-engineered balance of protein, healthy fats and slow-release carbs — formulated to cover your daily nutritional needs with 26 essential vitamins and minerals.</p>
             <MacroBars />
             <div className="macro-vitamins">
               <span className="vitamins-badge">26</span>
@@ -458,7 +462,7 @@ export default function Home() {
       <section className="cta-section" id="cta" ref={ctaRef}>
         <div className="container" style={{ maxWidth: 680, textAlign: "center" }}>
           <h2>Good nutrition<br /><em>simplified.</em></h2>
-          <p>Join the waitlist for early access, launch perks, and first-batch pricing.</p>
+          <p>Join the waitlist for early access, launch perks and first-batch pricing.</p>
           <WaitlistForm dark />
         </div>
       </section>
