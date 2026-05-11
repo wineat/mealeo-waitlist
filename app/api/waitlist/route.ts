@@ -97,7 +97,7 @@ export async function POST(req: NextRequest) {
           <!-- Header -->
           <tr>
             <td style="background:#0f0f0f;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
-              <img src="https://mealeo.co/TM.png" alt="Mealeo" width="189" height="47" style="display:inline-block;border:0;margin:0 auto;" />
+              <img src="https://mealeo.co/TM.png" alt="Mealeo" height="47" style="display:inline-block;border:0;margin:0 auto;width:auto;" />
             </td>
           </tr>
           <!-- Body -->
@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
                     <p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#1A1A1A;text-transform:uppercase;letter-spacing:1px;">What to expect</p>
                     <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Early-bird pricing.</strong> Exclusive launch pricing before we go public.</p>
                     <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>First batch access.</strong> Secure your order before the first batch sells out.</p>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Insider updates.</strong> Behind-the-scenes product, nutrition and launch news.</p>
+                    <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Insider updates.</strong><br />Behind-the-scenes product, nutrition and launch news.</p>
                   </td>
                 </tr>
               </table>
