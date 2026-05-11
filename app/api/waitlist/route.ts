@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#fafaf8;padding:48px 16px;">
     <tr>
       <td align="center">
-        <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
+        <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);border:1px solid #e8e6e0;">
           <!-- Header -->
           <tr>
             <td style="background:#fafaf8;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
