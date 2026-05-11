@@ -113,8 +113,8 @@ export async function POST(req: NextRequest) {
                 <tr>
                   <td style="padding:24px 28px;">
                     <p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#1A1A1A;text-transform:uppercase;letter-spacing:1px;">What to expect</p>
-                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Early-bird pricing.</strong> Exclusive launch pricing before we go public.</p>
-                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>First batch access.</strong> Secure your order before the first batch sells out.</p>
+                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Early-bird pricing.</strong><br />Exclusive launch pricing before we go public.</p>
+                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>First batch access.</strong><br />Secure your order before the first batch sells out.</p>
                     <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Insider updates.</strong><br />Behind-the-scenes product, nutrition and launch news.</p>
                   </td>
                 </tr>
