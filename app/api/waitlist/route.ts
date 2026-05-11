@@ -89,8 +89,8 @@ export async function POST(req: NextRequest) {
   <meta name="supported-color-schemes" content="light" />
   <title>Welcome to Mealeo</title>
 </head>
-<body style="margin:0;padding:0;background-color:#FAF7F2;font-family:Georgia,serif;color-scheme:light;">
-  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#FAF7F2;padding:48px 16px;">
+<body style="margin:0;padding:0;background-color:#fafaf8;font-family:Georgia,serif;color-scheme:light;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#fafaf8;padding:48px 16px;">
     <tr>
       <td align="center">
         <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
@@ -109,7 +109,7 @@ export async function POST(req: NextRequest) {
               <p style="margin:0 0 24px;font-family:Arial,sans-serif;font-size:16px;color:#555;line-height:1.7;">
                 Welcome to the Mealeo waitlist. You're one of the first to know when we launch, and being early has its benefits.
               </p>
-              <table cellpadding="0" cellspacing="0" style="background:#FAF7F2;border-radius:8px;width:100%;">
+              <table cellpadding="0" cellspacing="0" style="background:#fafaf8;border-radius:8px;width:100%;">
                 <tr>
                   <td style="padding:24px 28px;">
                     <p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#1A1A1A;text-transform:uppercase;letter-spacing:1px;">What to expect</p>
