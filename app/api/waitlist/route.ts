@@ -96,7 +96,9 @@ export async function POST(req: NextRequest) {
         <table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.06);">
           <!-- Header -->
           <tr>
-            <td style="background:#fafaf8 !important;padding:20px 40px;border-bottom:1px solid #e8e6e0;text-align:center;">
+            <td style="background:#fafaf8;padding:28px 40px 24px;border-bottom:1px solid #e8e6e0;text-align:center;">
+              <img src="https://mealeo.co/icon.png" alt="Mealeo" width="64" height="64" style="display:inline-block;border:0;border-radius:50%;margin:0 auto 16px;" />
+              <br />
               <img src="https://mealeo.co/logo.png" alt="Mealeo" width="189" height="47" style="display:inline-block;border:0;margin:0 auto;" />
             </td>
           </tr>
@@ -107,20 +109,20 @@ export async function POST(req: NextRequest) {
                 You're on the list.
               </h1>
               <p style="margin:0 0 24px;font-family:Arial,sans-serif;font-size:16px;color:#555;line-height:1.7;">
-                Welcome to the Mealeo waitlist. You're among the first to hear when we launch — and that comes with a few perks.
+                Welcome to the Mealeo waitlist. You're one of the first to know when we launch, and being early has its benefits.
               </p>
               <table cellpadding="0" cellspacing="0" style="background:#FAF7F2;border-radius:8px;width:100%;">
                 <tr>
                   <td style="padding:24px 28px;">
                     <p style="margin:0 0 12px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#1A1A1A;text-transform:uppercase;letter-spacing:1px;">What to expect</p>
-                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">🎁 <strong>Early-bird pricing</strong> — exclusive launch pricing before we go public.</p>
-                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">📦 <strong>First batch access</strong> — secure your order before the first batch sells out.</p>
-                    <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;">💌 <strong>Insider updates</strong> — behind-the-scenes product, nutrition and launch news.</p>
+                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Early-bird pricing.</strong> Exclusive launch pricing before we go public.</p>
+                    <p style="margin:0 0 10px;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>First batch access.</strong> Secure your order before the first batch sells out.</p>
+                    <p style="margin:0;font-family:Arial,sans-serif;font-size:15px;color:#444;line-height:1.6;"><strong>Insider updates.</strong> Behind-the-scenes product, nutrition and launch news.</p>
                   </td>
                 </tr>
               </table>
               <p style="margin:28px 0 0;font-family:Arial,sans-serif;font-size:15px;color:#555;line-height:1.7;">
-                Have questions? DM us on Instagram <a href="https://www.instagram.com/mealeo.co/" style="color:#1A1A1A;text-decoration:none;font-weight:700;">@mealeo.co</a>
+                Got questions? Reach us on Instagram at <a href="https://www.instagram.com/mealeo.co/" style="color:#1A1A1A;text-decoration:none;font-weight:700;">@mealeo.co</a>
               </p>
             </td>
           </tr>
@@ -128,7 +130,7 @@ export async function POST(req: NextRequest) {
           <tr>
             <td style="padding:24px 40px 36px;border-top:1px solid #F0EBE3;text-align:center;">
               <p style="margin:0 0 20px;font-family:Arial,sans-serif;font-size:13px;color:#999;">
-                You're receiving this because you joined the Mealeo waitlist. No spam, ever.
+                You received this because you joined the Mealeo waitlist. No spam, ever.
               </p>
               <a href="https://www.instagram.com/mealeo.co/" style="display:inline-block;border:0;">
                 <img src="https://mealeo.co/ig-icon.png" alt="Instagram" width="28" height="28" style="display:block;border:0;" />
