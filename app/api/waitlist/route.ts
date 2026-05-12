@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
                 </tr>
               </table>
               <p style="margin:28px 0 0;font-family:Arial,sans-serif;font-size:15px;color:#555;line-height:1.7;">
-                Got questions? Reach us on Instagram at <a href="https://www.instagram.com/mealeo.co/" style="color:#1A1A1A;text-decoration:none;font-weight:700;">@mealeo.co</a>
+                Got questions? Reach us on Instagram <a href="https://www.instagram.com/mealeo.co/" style="color:#1A1A1A;text-decoration:none;font-weight:700;">@mealeo.co</a>
               </p>
             </td>
           </tr>
