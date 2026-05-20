@@ -287,14 +287,14 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-eyebrow">
               <span className="hero-eyebrow-dot" />
-              Launching in India — Join the waitlist
+              Launching in India. Join the waitlist
             </div>
             <div className="hero-title-row">
               <h1>This is<br /><em>a meal.</em></h1>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/shaker.png" alt="Mealeo shaker" className="hero-image-mobile" />
             </div>
-            <p className="hero-sub">A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre and 26 vitamins &amp; minerals. Just scoop, shake and sip.</p>
+            <p className="hero-sub">For people who looked up and realized it&apos;s 4pm and they still haven&apos;t eaten.</p>
             <WaitlistForm />
             <div className="hero-stats">
               <div className="stat-item">
@@ -343,7 +343,7 @@ export default function Home() {
             ))}
             <div className="problem-list-item solution">
               <span className="problem-list-label">The fix</span>
-              <span className="problem-list-text">Mealeo — a complete meal in 15 seconds</span>
+              <span className="problem-list-text">Mealeo. A complete meal in 15 seconds</span>
             </div>
           </div>
         </div>
@@ -404,7 +404,7 @@ export default function Home() {
         <div className="container macro-layout">
           <div className="macro-text">
             <h2>The perfect balance,<br />pre-calculated.</h2>
-            <p>We&apos;ve done the research so you don&apos;t have to. Every serving of Mealeo is a precision-engineered balance of protein, healthy fats and slow-release carbs — formulated to cover your daily nutritional needs with 26 essential vitamins and minerals.</p>
+            <p>We&apos;ve done the research so you don&apos;t have to. Every serving of Mealeo is a precision-engineered balance of protein, healthy fats and slow-release carbs, formulated to cover your daily nutritional needs with 26 essential vitamins and minerals.</p>
             <MacroBars />
             <div className="macro-vitamins">
               <span className="vitamins-badge">26</span>
@@ -414,7 +414,7 @@ export default function Home() {
 
           <div className="nutrition-card">
             <div className="nutrition-title">Nutrition Facts</div>
-            <div className="nutrition-serving">Per serving (100g) — Chocolate</div>
+            <div className="nutrition-serving">Per serving (100g), Chocolate</div>
             <hr className="nutrition-divider" />
             <div className="nutrition-row">
               <span>Calories</span>
