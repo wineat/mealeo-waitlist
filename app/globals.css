@@ -254,8 +254,8 @@ h1 em {
 /* MARQUEE */
 .marquee-wrap {
   overflow: hidden;
-  background: var(--black);
-  color: var(--white);
+  background: var(--off-white);
+  color: var(--black);
   padding: 1.1rem 0;
   border-top: 1px solid var(--warm-gray);
   border-bottom: 1px solid var(--warm-gray);
@@ -270,11 +270,11 @@ h1 em {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
+  color: var(--text-muted);
   white-space: nowrap;
   padding: 0 2.5rem;
 }
-.marquee-track span.accent { color: var(--accent); font-weight: 500; }
+.marquee-track span.accent { color: var(--accent-dark); font-weight: 500; }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -346,9 +346,9 @@ h1 em {
 
 /* BENEFITS */
 .benefits-section {
-  background: var(--black);
-  color: var(--white);
-  border-bottom: 1px solid #1a1a1a;
+  background: var(--white);
+  color: var(--black);
+  border-bottom: 1px solid var(--warm-gray);
 }
 .benefits-heading {
   font-family: var(--font-serif), Georgia, serif;
@@ -356,7 +356,7 @@ h1 em {
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 3rem;
 }
 .section-label {
@@ -371,14 +371,14 @@ h1 em {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: rgba(255,255,255,0.06);
+  background: var(--warm-gray);
   border-radius: 24px;
   overflow: hidden;
 }
 .benefits-page { display: contents; }
 .benefits-dots { display: none; }
 .benefit-card {
-  background: #0f0f0f;
+  background: var(--white);
   padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
@@ -388,13 +388,13 @@ h1 em {
   cursor: default;
 }
 .benefit-card:hover {
-  background: #161616;
+  background: var(--off-white);
   border-top-color: var(--accent);
 }
 .benefit-num {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.72rem;
-  color: rgba(255,255,255,0.25);
+  color: var(--mid-gray);
   letter-spacing: 0.1em;
   display: block;
   margin-bottom: 2.5rem;
@@ -403,7 +403,7 @@ h1 em {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.05rem;
   font-weight: 500;
-  color: rgba(255,255,255,0.92);
+  color: var(--black);
   letter-spacing: -0.01em;
   margin-bottom: 0.6rem;
   line-height: 1.3;
@@ -411,7 +411,7 @@ h1 em {
 .benefit-desc {
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.875rem;
-  color: rgba(255,255,255,0.62);
+  color: var(--text-muted);
   line-height: 1.7;
   font-weight: 300;
 }
@@ -711,10 +711,11 @@ h1 em {
 
 /* CTA SECTION */
 .cta-section {
-  background: var(--black);
-  color: var(--white);
+  background: var(--off-white);
+  color: var(--black);
   text-align: center;
   padding: 3.5rem 2.5rem;
+  border-top: 1px solid var(--warm-gray);
 }
 .cta-section h2 {
   font-family: var(--font-serif), Georgia, serif;
@@ -724,10 +725,10 @@ h1 em {
   line-height: 1.05;
   margin-bottom: 1.5rem;
 }
-.cta-section h2 em { color: var(--white); font-style: italic; }
+.cta-section h2 em { color: var(--black); font-style: italic; }
 .cta-section > div > p {
   font-size: 1rem;
-  color: rgba(255,255,255,0.5);
+  color: var(--text-muted);
   margin-bottom: 2.5rem;
   font-weight: 300;
 }
@@ -736,10 +737,10 @@ h1 em {
   gap: 0;
   max-width: 440px;
   margin: 0 auto;
-  border: 1.5px solid rgba(255,255,255,0.2);
+  border: 1.5px solid var(--black);
   border-radius: 100px;
   overflow: hidden;
-  background: rgba(255,255,255,0.05);
+  background: var(--white);
 }
 .cta-form input {
   flex: 1;
@@ -749,9 +750,9 @@ h1 em {
   border: none;
   outline: none;
   background: transparent;
-  color: var(--white);
+  color: var(--black);
 }
-.cta-form input::placeholder { color: rgba(255,255,255,0.3); }
+.cta-form input::placeholder { color: var(--mid-gray); }
 .cta-form button {
   padding: 0.9rem 1.75rem;
   background: var(--accent);
@@ -769,7 +770,7 @@ h1 em {
 }
 .cta-form button:hover { opacity: 0.85; }
 .cta-form button:disabled { opacity: 0.6; cursor: not-allowed; }
-.cta-sub { font-size: 0.78rem; color: rgba(255,255,255,0.3); margin-top: 0.75rem; }
+.cta-sub { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; }
 
 /* FOOTER */
 footer {
@@ -777,11 +778,12 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--black);
+  background: var(--off-white);
+  border-top: 1px solid var(--warm-gray);
 }
 .footer-copy {
   font-size: 0.75rem;
-  color: rgba(255,255,255,0.3);
+  color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
@@ -819,16 +821,16 @@ footer {
   /* Benefits */
   .benefits-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; background: transparent; border-radius: 0; gap: 0; }
   .benefits-slider::-webkit-scrollbar { display: none; }
-  .benefits-page { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 1px; background: rgba(255,255,255,0.06); border-radius: 16px; overflow: hidden; }
-  .benefit-card { padding: 1.25rem 1.25rem; border-top: none; border-left: 2px solid transparent; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); border-radius: 0; margin-right: 0; flex: unset; }
+  .benefits-page { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 1px; background: var(--warm-gray); border-radius: 16px; overflow: hidden; }
+  .benefit-card { padding: 1.25rem 1.25rem; border-top: none; border-left: 2px solid transparent; border-right: none; border-bottom: 1px solid var(--warm-gray); border-radius: 0; margin-right: 0; flex: unset; }
   .benefit-card:last-child { border-bottom: none; }
   .benefit-card:hover { border-left-color: var(--accent); border-top-color: transparent; }
   .benefit-num { margin-bottom: 0.75rem; }
   .benefit-title { font-size: 0.95rem; }
   .benefit-desc { font-size: 0.82rem; }
   .benefits-dots { display: flex; justify-content: center; gap: 8px; margin-top: 1.25rem; }
-  .benefits-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.25); transition: background 0.3s; flex-shrink: 0; }
-  .benefits-dot.active { background: rgba(255,255,255,0.9); }
+  .benefits-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--warm-gray); transition: background 0.3s; flex-shrink: 0; }
+  .benefits-dot.active { background: var(--black); }
 
   /* Ingredients */
   .ingredients-header { flex-direction: column; align-items: flex-start; gap: 1rem; }

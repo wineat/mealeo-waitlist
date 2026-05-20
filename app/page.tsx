@@ -40,14 +40,14 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
 
   if (status === "success") {
     return (
-      <div className="success-msg" style={dark ? { background: "rgba(200,240,74,0.1)", borderColor: "var(--accent)", color: "var(--white)", maxWidth: "440px", margin: "0 auto" } : {}}>
+      <div className="success-msg" style={dark ? { maxWidth: "440px", margin: "0 auto" } : {}}>
         <span className="check" style={dark ? { color: "var(--accent)" } : {}}>✓</span>
         {" "}You&apos;re on the list. We&apos;ll be in touch before launch.
       </div>
     );
   }
 
-  const inputStyle = dark ? { color: "var(--white)" } : {};
+  const inputStyle = dark ? { color: "var(--black)" } : {};
 
   return (
     <>
@@ -461,7 +461,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="cta-section" id="cta" ref={ctaRef}>
         <div className="container" style={{ maxWidth: 680, textAlign: "center" }}>
-          <h2>Eat right.<br /><em>Finally.</em></h2>
+          <h2>Eating should be easier.</h2>
           <p>Early access, launch perks and first-batch pricing. Your future self will thank you.</p>
           <WaitlistForm dark />
         </div>
