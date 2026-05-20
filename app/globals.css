@@ -124,7 +124,7 @@ h1 {
 }
 h1 em {
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--black);
 }
 .h1-muted {
   color: var(--text-muted);
@@ -799,7 +799,7 @@ footer {
   .hero-image { display: none; }
   .hero-title-row { display: block; }
   .hero-image-mobile { display: none; }
-  h1 { font-size: clamp(2.6rem, 11vw, 5rem); white-space: normal; margin-bottom: 1rem; }
+  h1 { font-size: clamp(3.2rem, 13vw, 6rem); white-space: normal; margin-bottom: 1rem; }
   .hero-eyebrow { margin-top: 0; margin-bottom: 1rem; }
   .hero-sub { font-size: 0.95rem; margin-top: 0; margin-bottom: 2.5rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
