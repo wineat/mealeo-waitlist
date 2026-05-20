@@ -79,14 +79,14 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
 // ── FAQ accordion ─────────────────────────────────────────────────────────────
 
 const faqs = [
-  { q: "What is Mealeo, exactly?", a: "Mealeo is a complete meal in powder form. You mix it with water to get a balanced mix of protein, carbs, fats, fibre and 26 essential vitamins and minerals your body needs, designed for when you don’t have the time or energy to cook without compromising on nutrition." },
-  { q: "Is this just another protein shake?", a: "No. Mealeo isn't a supplement — it's a complete meal. It delivers all the macronutrients and essential micronutrients your body needs to stay full and energised, not just protein." },
-  { q: "Why would I drink a meal instead of eating real food?", a: "You still can. Mealeo is simply a convenient, healthy option for when cooking, planning, or ordering food isn't possible. It's made for busy days, lazy nights, or any time you want balanced nutrition without the hassle." },
-  { q: "Is it safe? What's in it?", a: "Yes. We use high-quality, 100% vegan ingredients and undergo regular testing. All ingredients are carefully selected for quality and nutrition, with no preservatives or hidden blends. The full ingredient list will be shared before launch." },
-  { q: "How much will it cost?", a: "Final pricing will be announced at launch. Mealeo is designed to be more affordable than most takeout meals or nutrition packs, without compromising on quality. Early waitlisters will receive special launch offers." },
-  { q: "What if I have dietary restrictions?", a: "Mealeo is free from animal products, soy, dairy, eggs and added sugar, making it suitable for people with complex dietary requirements. The full ingredient list will be shared before launch so you can review it easily." },
-  { q: "How long does it take to prepare?", a: "Less than 15 seconds. Scoop, shake and sip. No blender or prep needed — just a shaker bottle and water." },
-  { q: "Why should I join the waitlist now?", a: "The waitlist gives you front-row access to Mealeo's launch, early-bird pricing and insider updates. It's the easiest way to secure your spot before the first batch sells out." },
+  { q: "Wait, what actually is Mealeo?", a: "Mealeo is a complete meal. In powder form. Mix it with water and you get a proper balance of protein, carbs, fats, fibre and 26 vitamins and minerals. Built for when life gets in the way of eating right." },
+  { q: "Is this just another protein shake?", a: "No. A protein shake tops up one nutrient. Mealeo replaces a full meal. Everything your body needs to stay full and energised, not just protein." },
+  { q: "Why drink a meal instead of just eating?", a: "You still can. Mealeo is for the days when cooking, planning or ordering food just isn’t happening. Busy days, lazy nights, or when you just want to eat right without thinking about it." },
+  { q: "Is it safe? What’s in it?", a: "Yes. We use high-quality, 100% vegan ingredients and undergo regular testing. No preservatives, no hidden blends. The full ingredient list will be shared before launch." },
+  { q: "How much is it going to cost?", a: "Pricing drops at launch. The goal is to be more affordable than takeout without compromising on quality. Early waitlisters get special launch pricing." },
+  { q: "What if I have dietary restrictions?", a: "Mealeo is free from animal products, soy, dairy, eggs and added sugar. The full ingredient list will be shared before launch so you can check it yourself." },
+  { q: "How fast is it to make?", a: "Under 15 seconds. Scoop, shake, sip. Just a shaker bottle and water. That’s genuinely it." },
+  { q: "Why join now and not later?", a: "Early access, launch pricing and insider updates before anyone else. The first batch won’t last, and waitlist members are first in line." },
 ];
 
 function FAQItem({ q, a }: { q: string; a: string }) {
@@ -287,7 +287,7 @@ export default function Home() {
           <div className="hero-content">
             <div className="hero-eyebrow">
               <span className="hero-eyebrow-dot" />
-              Launching in India. Join the waitlist
+              Dropping soon in India
             </div>
             <div className="hero-title-row">
               <h1>Meals made<br /><em>easier.</em></h1>
@@ -333,10 +333,10 @@ export default function Home() {
       <section className="problem-section">
         <div className="container problem-layout">
           <div className="problem-text">
-            <h2>Busy days make eating well harder.</h2>
+            <h2>Real talk. Eating well is actually hard.</h2>
           </div>
           <div className="problem-list">
-            {["Skipping meals on busy days", "Ordering food because there\u2019s no time", "Counting macros, trying to get it right"].map((item) => (
+            {["Skipping meals and pretending it\u2019s fine", "Spending money on delivery, again", "Opening a calorie app and immediately giving up"].map((item) => (
               <div className="problem-list-item crossed" key={item}>
                 <span className="problem-list-text">{item}</span>
               </div>
@@ -356,9 +356,9 @@ export default function Home() {
           <div className="benefits-slider" ref={benefitsRef} onScroll={handleBenefitsScroll}>
             <div className="benefits-page">
               {[
-                { n: "01", title: "Complete Nutrition", desc: "Balanced macros and essential micronutrients in every serving." },
-                { n: "02", title: "Ready in Seconds", desc: "No cooking. No preparation. Scoop, shake, sip." },
-                { n: "03", title: "Keeps you Full", desc: "30g protein and slow-release carbs for lasting fullness." },
+                { n: "01", title: "Complete Nutrition", desc: "Everything your body actually needs. In every serving." },
+                { n: "02", title: "Ready in Seconds", desc: "No cooking. No prep. Scoop, shake, sip." },
+                { n: "03", title: "Keeps you Full", desc: "30g protein and slow-release carbs. Keeps you full for real." },
               ].map(({ n, title, desc }) => (
                 <div className="benefit-card" key={n}>
                   <span className="benefit-num">{n}</span>
@@ -369,9 +369,9 @@ export default function Home() {
             </div>
             <div className="benefits-page">
               {[
-                { n: "04", title: "No Calorie Counting", desc: "The nutrition is pre-calculated." },
-                { n: "05", title: "Taste", desc: "Smooth chocolate, made with Indonesian cocoa." },
-                { n: "06", title: "Plant-Based", desc: "100% vegan. Better for you and the planet." },
+                { n: "04", title: "No Calorie Counting", desc: "We did the math so you don't have to." },
+                { n: "05", title: "Taste", desc: "Smooth chocolate. Made with Indonesian cocoa." },
+                { n: "06", title: "Plant-Based", desc: "100% vegan. Good for you, good for the planet." },
               ].map(({ n, title, desc }) => (
                 <div className="benefit-card" key={n}>
                   <span className="benefit-num">{n}</span>
@@ -392,8 +392,8 @@ export default function Home() {
       <section className="ingredients-section">
         <div className="container">
           <div className="ingredients-header">
-            <h2>Formulated using real,<br />whole ingredients.</h2>
-            <p>Designed for your daily routine.</p>
+            <h2>Made with actual food.<br />Not powder and prayers.</h2>
+            <p>No weird stuff.</p>
           </div>
           <IngredientsScroll />
         </div>
@@ -404,7 +404,7 @@ export default function Home() {
         <div className="container macro-layout">
           <div className="macro-text">
             <h2>The perfect balance,<br />pre-calculated.</h2>
-            <p>We&apos;ve done the research so you don&apos;t have to. Every serving of Mealeo is a precision-engineered balance of protein, healthy fats and slow-release carbs, formulated to cover your daily nutritional needs with 26 essential vitamins and minerals.</p>
+            <p>We did the research so you don&apos;t have to. Every serving hits the right balance of protein, healthy fats and slow-release carbs, covering your daily nutritional needs with 26 essential vitamins and minerals.</p>
             <MacroBars />
             <div className="macro-vitamins">
               <span className="vitamins-badge">26</span>
@@ -461,8 +461,8 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="cta-section" id="cta" ref={ctaRef}>
         <div className="container" style={{ maxWidth: 680, textAlign: "center" }}>
-          <h2>Good nutrition<br /><em>simplified.</em></h2>
-          <p>Join the waitlist for early access, launch perks and first-batch pricing.</p>
+          <h2>Eat right.<br /><em>Finally.</em></h2>
+          <p>Early access, launch perks and first-batch pricing. Your future self will thank you.</p>
           <WaitlistForm dark />
         </div>
       </section>

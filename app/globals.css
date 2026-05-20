@@ -263,7 +263,7 @@ h1 em {
 .marquee-track {
   display: flex;
   gap: 0;
-  animation: marquee 30s linear infinite;
+  animation: marquee 20s linear infinite;
   width: max-content;
 }
 .marquee-track span {
