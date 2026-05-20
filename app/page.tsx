@@ -64,7 +64,7 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
           style={inputStyle}
         />
         <button onClick={handleSubmit} disabled={status === "loading"}>
-          {status === "loading" ? "Joining…" : dark ? "Join waitlist" : "Get early access"}
+          {status === "loading" ? "Joining…" : "Join the waitlist"}
         </button>
       </div>
       {status === "error" && <p className="error-msg">{message}</p>}
