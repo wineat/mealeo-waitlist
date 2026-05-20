@@ -281,6 +281,15 @@ export default function Home() {
         >Join waitlist</a>
       </nav>
 
+      {/* MARQUEE */}
+      <div className="marquee-wrap">
+        <div className="marquee-track">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className={item.accent ? "accent" : ""}>{item.text}</span>
+          ))}
+        </div>
+      </div>
+
       {/* HERO */}
       <section className="hero" id="waitlist" ref={heroRef}>
         <div className="container hero-layout">
@@ -319,15 +328,6 @@ export default function Home() {
           <img src="/shaker-hand.svg" alt="Mealeo shaker" className="hero-image" />
         </div>
       </section>
-
-      {/* MARQUEE */}
-      <div className="marquee-wrap">
-        <div className="marquee-track">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className={item.accent ? "accent" : ""}>{item.text}</span>
-          ))}
-        </div>
-      </div>
 
       {/* PROBLEM */}
       <section className="problem-section">
