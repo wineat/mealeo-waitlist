@@ -166,8 +166,8 @@ h1 em {
 .waitlist-form input::placeholder { color: var(--mid-gray); }
 .waitlist-form button {
   padding: 0.85rem 1.75rem;
-  background: var(--black);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--black);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
@@ -176,10 +176,10 @@ h1 em {
   border: none;
   border-radius: 100px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: opacity 0.2s;
   white-space: nowrap;
 }
-.waitlist-form button:hover { background: #2a2a2a; }
+.waitlist-form button:hover { opacity: 0.85; }
 .waitlist-form button:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .form-sub {
@@ -724,7 +724,7 @@ h1 em {
   line-height: 1.05;
   margin-bottom: 1.5rem;
 }
-.cta-section h2 em { color: rgba(255,255,255,0.4); font-style: italic; }
+.cta-section h2 em { color: var(--white); font-style: italic; }
 .cta-section > div > p {
   font-size: 1rem;
   color: rgba(255,255,255,0.5);
