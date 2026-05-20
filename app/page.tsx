@@ -290,11 +290,11 @@ export default function Home() {
               Launching in India. Join the waitlist
             </div>
             <div className="hero-title-row">
-              <h1>This is<br /><em>a meal.</em></h1>
+              <h1>Meals made<br /><em>easier.</em></h1>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/shaker.png" alt="Mealeo shaker" className="hero-image-mobile" />
             </div>
-            <p className="hero-sub">For people who looked up and realized it&apos;s 4pm and they still haven&apos;t eaten.</p>
+            <p className="hero-sub">For people who looked up and realized it&apos;s 3pm and they still haven&apos;t eaten.</p>
             <WaitlistForm />
             <div className="hero-stats">
               <div className="stat-item">
