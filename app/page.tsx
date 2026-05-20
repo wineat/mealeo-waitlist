@@ -80,8 +80,8 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
 
 const faqs = [
   { q: "Wait, what actually is Mealeo?", a: "Mealeo is a complete meal. In powder form. Mix it with water and you get a proper balance of protein, carbs, fats, fibre and 26 vitamins and minerals. Built for when life gets in the way of eating right." },
-  { q: "Is this just another protein shake?", a: "No. A protein shake tops up one nutrient. Mealeo replaces a full meal. Everything your body needs to stay full and energised, not just protein." },
-  { q: "Why drink a meal instead of just eating?", a: "You still can. Mealeo is for the days when cooking, planning or ordering food just isn’t happening. Busy days, lazy nights, or when you just want to eat right without thinking about it." },
+  { q: "Is this just another protein shake?", a: "No. A protein shake tops up one nutrient. Mealeo is a full meal. Everything your body needs to stay full and energised, not just protein." },
+  { q: "Why drink a meal instead of just eating?", a: "You still can. Mealeo is for the days when cooking, planning or ordering food just isn’t happening. Busy days, lazy nights or when you just want to eat right without thinking about it." },
   { q: "Is it safe? What’s in it?", a: "Yes. We use high-quality, 100% vegan ingredients and undergo regular testing. No preservatives, no hidden blends. The full ingredient list will be shared before launch." },
   { q: "How much is it going to cost?", a: "Pricing drops at launch. The goal is to be more affordable than takeout without compromising on quality. Early waitlisters get special launch pricing." },
   { q: "What if I have dietary restrictions?", a: "Mealeo is free from animal products, soy, dairy, eggs and added sugar. The full ingredient list will be shared before launch so you can check it yourself." },
@@ -306,8 +306,8 @@ export default function Home() {
                 <span className="stat-label">Vitamins &amp; minerals</span>
               </div>
               <div className="stat-item">
-                <span className="stat-num">100%</span>
-                <span className="stat-label">Plant-based</span>
+                <span className="stat-num">400</span>
+                <span className="stat-label">Calories per serving</span>
               </div>
               <div className="stat-item">
                 <span className="stat-num">&lt;15s</span>
@@ -392,8 +392,8 @@ export default function Home() {
       <section className="ingredients-section">
         <div className="container">
           <div className="ingredients-header">
-            <h2>Made with actual food.<br />Not powder and prayers.</h2>
-            <p>No weird stuff.</p>
+            <h2>Made with actual food.<br />Formulated by nutritionists.</h2>
+            <p>Designed for your daily routine.</p>
           </div>
           <IngredientsScroll />
         </div>

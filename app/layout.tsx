@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, DM_Sans } from "next/font/google";
+import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
+const fraunces = Fraunces({
   variable: "--font-serif",
   subsets: ["latin"],
   weight: ["400"],
@@ -35,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSerif.variable} ${dmSans.variable}`}>
+      <body className={`${fraunces.variable} ${dmSans.variable}`}>
         {children}
       </body>
     </html>
