@@ -269,6 +269,15 @@ export default function Home() {
 
   return (
     <>
+      {/* MARQUEE */}
+      <div className="marquee-wrap">
+        <div className="marquee-track">
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
+            <span key={i} className={item.accent ? "accent" : ""}>{item.text}</span>
+          ))}
+        </div>
+      </div>
+
       {/* NAV */}
       <nav>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -280,15 +289,6 @@ export default function Home() {
           onClick={(e) => { e.preventDefault(); document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" }); }}
         >Join waitlist</a>
       </nav>
-
-      {/* MARQUEE */}
-      <div className="marquee-wrap">
-        <div className="marquee-track">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className={item.accent ? "accent" : ""}>{item.text}</span>
-          ))}
-        </div>
-      </div>
 
       {/* HERO */}
       <section className="hero" id="waitlist" ref={heroRef}>

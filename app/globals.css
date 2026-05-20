@@ -26,7 +26,7 @@ body {
 /* NAV */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 2.95rem; left: 0; right: 0;
   z-index: 100;
   display: flex;
   justify-content: space-between;
@@ -66,7 +66,7 @@ section { padding: 6rem 2.5rem; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 2.5rem;
+  padding-top: 8.5rem;
   padding-bottom: 4rem;
   border-bottom: 1px solid var(--warm-gray);
 }
@@ -253,13 +253,14 @@ h1 em {
 
 /* MARQUEE */
 .marquee-wrap {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
   overflow: hidden;
   background: var(--off-white);
   color: var(--black);
   padding: 1.1rem 0;
-  border-top: 1px solid var(--warm-gray);
   border-bottom: 1px solid var(--warm-gray);
-  margin-top: 5.17rem;
 }
 .marquee-track {
   display: flex;
@@ -789,7 +790,7 @@ footer {
 
 @media (max-width: 768px) {
   /* Nav */
-  nav { padding: 0.2rem 1.25rem; justify-content: center; }
+  nav { padding: 0.2rem 1.25rem; justify-content: center; top: 2.95rem; }
   nav img { height: 4rem !important; margin-top: -0.5rem; margin-bottom: -0.5rem; }
   .nav-cta { position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%); font-size: 0.6rem; letter-spacing: 0.04em; }
 
@@ -797,8 +798,7 @@ footer {
   section { padding: 3.5rem 1.25rem; }
 
   /* Hero */
-  .marquee-wrap { margin-top: 3.4rem; }
-  .hero { padding-top: 1.5rem; padding-bottom: 3rem; min-height: 100svh; overflow: hidden; }
+  .hero { padding-top: 7rem; padding-bottom: 3rem; min-height: 100svh; overflow: hidden; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
   .hero-title-row { display: block; }
