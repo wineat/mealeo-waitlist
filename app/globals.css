@@ -11,7 +11,7 @@
   --accent-dark: #8fb82e;
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
@@ -794,13 +794,13 @@ footer {
   section { padding: 3.5rem 1.25rem; }
 
   /* Hero */
-  .hero { padding-top: 4rem; padding-bottom: 3rem; min-height: auto; }
+  .hero { padding-top: 4rem; padding-bottom: 3rem; min-height: auto; overflow: hidden; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
-  .hero-title-row { display: flex; align-items: flex-start; justify-content: space-between; }
-  .hero-image-mobile { display: block; width: auto; height: calc(2 * clamp(3rem, 19vw, 9rem)); flex-shrink: 0; border: none; outline: none; box-shadow: none; margin-right: 0.75rem; margin-left: -12px; }
-  h1 { font-size: clamp(3rem, 19vw, 9rem); white-space: nowrap; }
-  .hero-sub { font-size: 1rem; }
+  .hero-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+  .hero-image-mobile { display: block; width: auto; height: 8rem; flex-shrink: 0; border: none; outline: none; box-shadow: none; }
+  h1 { font-size: clamp(2.6rem, 11vw, 5rem); white-space: normal; }
+  .hero-sub { font-size: 1rem; margin-top: 0.5rem; }
   .waitlist-form { max-width: 100%; flex-direction: column; border-radius: 16px; }
   .waitlist-form input { padding: 0.9rem 1.25rem; border-radius: 12px; }
   .waitlist-form button { border-radius: 12px; text-align: center; padding: 0.9rem 1.25rem; }
