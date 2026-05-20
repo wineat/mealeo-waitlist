@@ -798,7 +798,7 @@ footer {
   section { padding: 3.5rem 1.25rem; }
 
   /* Hero */
-  .hero { padding-top: 7rem; padding-bottom: 3rem; min-height: 100svh; overflow: hidden; }
+  .hero { padding-top: 9.5rem; padding-bottom: 3rem; min-height: 100svh; overflow: hidden; }
   .hero-layout { grid-template-columns: 1fr; }
   .hero-image { display: none; }
   .hero-title-row { display: block; }
