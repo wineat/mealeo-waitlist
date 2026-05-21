@@ -101,7 +101,7 @@ section { padding: 6rem 2.5rem; }
 .hero-eyebrow-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--black);
+  background: #FF3B30;
   flex-shrink: 0;
   animation: blink 1.2s ease-in-out infinite;
 }
