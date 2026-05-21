@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "800"],
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -27,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dmSans.variable}`}>
+      <body className={`${instrumentSerif.variable} ${dmSans.variable}`}>
         {children}
       </body>
     </html>

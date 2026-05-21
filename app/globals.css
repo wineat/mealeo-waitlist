@@ -2,13 +2,11 @@
 
 :root {
   --black: #0f0f0f;
-  --white: #ffffff;
-  --off-white: #ffffff;
+  --white: #fafaf8;
+  --off-white: #f3f2ee;
   --warm-gray: #e8e6e0;
   --mid-gray: #9a9890;
   --text-muted: #6b6962;
-  --accent: #FFD600;
-  --accent-dark: #C9A800;
 }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -32,12 +30,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0.28rem 2.5rem;
-  background: rgba(255,255,255,0.88);
+  background: rgba(250,250,248,0.88);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--warm-gray);
 }
 .logo {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: 1.4rem;
   letter-spacing: -0.02em;
   color: var(--black);
@@ -103,7 +101,7 @@ section { padding: 6rem 2.5rem; }
 .hero-eyebrow-dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--black);
   flex-shrink: 0;
   animation: blink 1.2s ease-in-out infinite;
 }
@@ -113,9 +111,9 @@ section { padding: 6rem 2.5rem; }
 }
 
 h1 {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(3.2rem, 8vw, 7rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.0;
   letter-spacing: -0.03em;
   color: var(--black);
@@ -166,8 +164,8 @@ h1 em {
 .waitlist-form input::placeholder { color: var(--mid-gray); }
 .waitlist-form button {
   padding: 0.85rem 1.75rem;
-  background: var(--accent);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
@@ -194,7 +192,7 @@ h1 em {
   align-items: center;
   gap: 10px;
   padding: 0.85rem 1.5rem;
-  border: 1.5px solid var(--accent-dark);
+  border: 1.5px solid var(--warm-gray);
   border-radius: 100px;
   background: #f4fce8;
   font-size: 0.9rem;
@@ -202,7 +200,7 @@ h1 em {
   font-weight: 400;
   max-width: 480px;
 }
-.success-msg .check { color: var(--accent-dark); font-size: 1rem; }
+.success-msg .check { color: var(--black); font-size: 1rem; }
 
 .error-msg {
   font-size: 0.78rem;
@@ -235,9 +233,9 @@ h1 em {
   padding-right: 0;
 }
 .stat-num {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: 2.4rem;
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: -0.02em;
   display: block;
@@ -258,7 +256,7 @@ h1 em {
   z-index: 101;
   overflow: hidden;
   background: #0f0f0f;
-  color: #FFD600;
+  color: var(--white);
   padding: 1.1rem 0;
   border-bottom: 1px solid #2a2a2a;
 }
@@ -272,11 +270,11 @@ h1 em {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #FFD600;
+  color: rgba(255,255,255,0.45);
   white-space: nowrap;
   padding: 0 2.5rem;
 }
-.marquee-track span.accent { color: #FFD600; font-weight: 500; }
+.marquee-track span.accent { color: rgba(255,255,255,0.85); font-weight: 500; }
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
@@ -298,9 +296,9 @@ h1 em {
   align-items: center;
 }
 .problem-text h2 {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
@@ -343,7 +341,7 @@ h1 em {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #FFD600;
+  color: rgba(255,255,255,0.5);
   font-weight: 500;
 }
 
@@ -354,9 +352,9 @@ h1 em {
   border-bottom: 1px solid var(--warm-gray);
 }
 .benefits-heading {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--black);
@@ -392,7 +390,7 @@ h1 em {
 }
 .benefit-card:hover {
   background: var(--off-white);
-  border-top-color: var(--accent);
+  border-top-color: var(--black);
 }
 .benefit-num {
   font-family: var(--font-sans), system-ui, sans-serif;
@@ -433,9 +431,9 @@ h1 em {
   margin-bottom: 1.5rem;
 }
 .ingredients-header h2 {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.02em;
   max-width: 500px;
@@ -520,9 +518,9 @@ h1 em {
   align-items: center;
 }
 .macro-text h2 {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
@@ -571,7 +569,7 @@ h1 em {
 }
 .macro-bar-split.animate { transform: scaleX(1); }
 .macro-bar-segment { height: 100%; border-radius: 100px; background: var(--black); }
-.macro-bar-segment.accent { background: var(--accent-dark); }
+.macro-bar-segment.accent { background: var(--mid-gray); }
 .macro-bar-seg-labels {
   display: flex;
   margin-top: 5px;
@@ -581,7 +579,7 @@ h1 em {
   color: var(--text-muted);
   text-align: center;
 }
-.macro-bar-seg-label.accent { color: var(--accent-dark); font-weight: 500; }
+.macro-bar-seg-label.accent { color: var(--text-muted); font-weight: 500; }
 .macro-bar-sub {
   display: flex;
   justify-content: space-between;
@@ -590,7 +588,7 @@ h1 em {
   margin-top: 4px;
   padding-left: 0.75rem;
 }
-.macro-bar-sub span:last-child { color: var(--accent-dark); font-weight: 500; }
+.macro-bar-sub span:last-child { color: var(--text-muted); font-weight: 500; }
 .macro-vitamins {
   display: flex;
   align-items: center;
@@ -602,8 +600,8 @@ h1 em {
   margin-top: 1.5rem;
 }
 .vitamins-badge {
-  background: var(--accent);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
   font-size: 1.2rem;
   font-weight: 500;
   padding: 0.4rem 0.9rem;
@@ -620,9 +618,9 @@ h1 em {
   font-size: 0.85rem;
 }
 .nutrition-title {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 400;
   margin-bottom: 4px;
 }
 .nutrition-serving {
@@ -642,8 +640,8 @@ h1 em {
 .nutrition-row.sub { padding-left: 1rem; color: var(--text-muted); }
 .nutrition-cal {
   font-size: 2.5rem;
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-weight: 800;
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 400;
   letter-spacing: -0.02em;
   margin: 8px 0;
 }
@@ -661,9 +659,9 @@ h1 em {
   align-self: start;
 }
 .faq-sticky h2 {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2rem, 3vw, 2.8rem);
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
@@ -722,9 +720,9 @@ h1 em {
   border-top: 1px solid var(--warm-gray);
 }
 .cta-section h2 {
-  font-family: var(--font-sans), system-ui, sans-serif;
+  font-family: var(--font-serif), Georgia, serif;
   font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 800;
+  font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.05;
   margin-bottom: 1.5rem;
@@ -759,8 +757,8 @@ h1 em {
 .cta-form input::placeholder { color: var(--mid-gray); }
 .cta-form button {
   padding: 0.9rem 1.75rem;
-  background: var(--accent);
-  color: var(--black);
+  background: var(--black);
+  color: var(--white);
   font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 0.8rem;
   font-weight: 500;
@@ -827,7 +825,7 @@ footer {
   .benefits-page { flex: 0 0 100%; scroll-snap-align: start; display: flex; flex-direction: column; gap: 1px; background: var(--warm-gray); border-radius: 16px; overflow: hidden; }
   .benefit-card { padding: 1.25rem 1.25rem; border-top: none; border-left: 2px solid transparent; border-right: none; border-bottom: 1px solid var(--warm-gray); border-radius: 0; margin-right: 0; flex: unset; }
   .benefit-card:last-child { border-bottom: none; }
-  .benefit-card:hover { border-left-color: var(--accent); border-top-color: transparent; }
+  .benefit-card:hover { border-left-color: var(--black); border-top-color: transparent; }
   .benefit-num { margin-bottom: 0.75rem; }
   .benefit-title { font-size: 0.95rem; }
   .benefit-desc { font-size: 0.82rem; }
