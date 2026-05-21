@@ -226,8 +226,6 @@ const marqueeItems = [
   { text: "Complete nutrition", accent: true },
   { text: "No calorie tracking", accent: false },
   { text: "Plant-based", accent: true },
-  { text: "30g protein", accent: false },
-  { text: "26 vitamins & minerals", accent: true },
   { text: "Ready in 15 seconds", accent: false },
   { text: "No cooking required", accent: true },
   { text: "100% vegan", accent: false },
