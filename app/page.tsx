@@ -281,7 +281,7 @@ export default function Home() {
       {/* NAV */}
       <nav>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <a href="#"><img src="/web-logo.svg" alt="Mealeo" style={{ height: "4.608rem", width: "auto" }} /></a>
+        <a href="#"><img src="/web-logo.svg" alt="Mealeo" style={{ height: "2.8rem", width: "auto" }} /></a>
         <a
           href="#cta"
           className="nav-cta"
@@ -461,7 +461,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="cta-section" id="cta" ref={ctaRef}>
         <div className="container" style={{ maxWidth: 680, textAlign: "center" }}>
-          <h2>Eating should be easier.</h2>
+          <h2>Eating well should be easier.</h2>
           <p>Early access, launch perks and first-batch pricing. Your future self will thank you.</p>
           <WaitlistForm dark />
         </div>
