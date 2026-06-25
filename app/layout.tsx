@@ -27,6 +27,44 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Mealeo Essentials Private Limited",
+  "alternateName": "Mealeo",
+  "legalName": "Mealeo Essentials Private Limited",
+  "url": "https://mealeo.co",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://mealeo.co/design-logo.png"
+  },
+  "description": "Mealeo makes complete, balanced meals designed to make good nutrition easier. Just scoop, shake, and get a filling meal with protein, fibre, and essential nutrients.",
+  "slogan": "Complete meals made easy",
+  "foundingDate": "2024-12-17",
+  "founders": [
+    { "@type": "Person", "name": "Vineet Baburaj" },
+    { "@type": "Person", "name": "Shipra Dawar" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bengaluru",
+    "addressRegion": "Karnataka",
+    "addressCountry": "IN"
+  },
+  "areaServed": "IN",
+  "industry": "Food & Beverage",
+  "brand": {
+    "@type": "Brand",
+    "name": "Mealeo",
+    "slogan": "Complete meals made easy"
+  },
+  "sameAs": [
+    "https://www.instagram.com/mealeo.co/",
+    "https://www.facebook.com/profile.php?id=61591250931789",
+    "https://www.linkedin.com/company/mealeo"
+  ]
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,6 +72,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body className={`${newsreader.variable} ${instrumentSans.variable}`}>
         {children}
       </body>
