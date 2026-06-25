@@ -18,9 +18,9 @@ const instrumentSans = Instrument_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Mealeo | A Complete Meal for busy days",
+  title: "Mealeo | Complete Meals Made Easier",
   description:
-    "A complete meal in seconds. 30g protein, complex carbs, essential fats, fibre and 26 vitamins & minerals. Just scoop, shake and sip.",
+    "Mealeo makes complete, balanced nutrition easier for busy days. Just scoop, shake, and get a filling meal with protein, fibre, and essential nutrients.",
   icons: {
     icon: "/favicon2-new.png",
     apple: "/favicon2-new.png",

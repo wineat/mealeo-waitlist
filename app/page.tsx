@@ -155,7 +155,7 @@ export default function Home() {
 
       {/* ── MOBILE FOOTER ───────────────────────────── */}
       <footer className="footer-mobile">
-        <h2 className="footer-tagline-mob">Eating well<br />should be easier.</h2>
+        <h2 className="footer-tagline-mob">Built<br />for<br />big<br />days.</h2>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/design-logo.png" alt="Mealeo" className="footer-logo-mob" />
         <div className="footer-social-mob"><SocialIcons /></div>
