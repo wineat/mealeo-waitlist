@@ -1,23 +1,22 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 
-// ── Waitlist form (calls real /api/waitlist → Supabase + Resend) ──────────────
+const marqueeItems = [
+  "Designed for momentum.", "This is a meal.",
+  "Designed to be complete.", "This is a meal.",
+  "Designed to be effortless.", "This is a meal.",
+];
 
-function WaitlistForm({ dark = false }: { dark?: boolean }) {
+function useWaitlistForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [message, setMessage] = useState("");
+  const [note, setNote] = useState("");
 
-  const handleSubmit = async () => {
-    if (!email || !email.includes("@")) {
-      setStatus("error");
-      setMessage("Please enter a valid email address.");
-      setTimeout(() => setStatus("idle"), 2000);
-      return;
-    }
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
     setStatus("loading");
-    setMessage("");
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
@@ -28,449 +27,173 @@ function WaitlistForm({ dark = false }: { dark?: boolean }) {
       if (res.ok) {
         setStatus("success");
         setEmail("");
+        setNote("You’re on the list. We’ll be in touch before launch.");
       } else {
         setStatus("error");
-        setMessage(data.error || "Something went wrong. Please try again.");
+        setNote(data.error || "Something went wrong.");
       }
     } catch {
       setStatus("error");
-      setMessage("Network error. Please try again.");
+      setNote("Network error. Please try again.");
     }
   };
 
-  if (status === "success") {
-    return (
-      <div className="success-msg" style={dark ? { maxWidth: "440px", margin: "0 auto" } : {}}>
-        <span className="check" style={dark ? { color: "var(--accent)" } : {}}>✓</span>
-        {" "}You&apos;re on the list. We&apos;ll be in touch before launch.
-      </div>
-    );
-  }
+  const resetEmail = (v: string) => {
+    setEmail(v);
+    if (status !== "idle") { setStatus("idle"); setNote(""); }
+  };
 
-  const inputStyle = dark ? { color: "var(--black)" } : {};
+  const btnLabel = status === "success" ? "You’re in!" : status === "loading" ? "Joining…" : "Join the waitlist";
 
+  return { email, note, status, btnLabel, handleSubmit, resetEmail };
+}
+
+function SocialIcons() {
   return (
     <>
-      <div className={dark ? "cta-form" : "waitlist-form"}>
-        <input
-          type="email"
-          name={dark ? "email-cta" : "email-hero"}
-          id={dark ? "email-cta" : "email-hero"}
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-          placeholder={dark ? "Your email address" : "Enter your email address"}
-          autoComplete={dark ? "off" : "email"}
-          style={inputStyle}
-        />
-        <button onClick={handleSubmit} disabled={status === "loading"}>
-          {status === "loading" ? "Joining…" : "Join the waitlist"}
-        </button>
-      </div>
-      {status === "error" && <p className="error-msg">{message}</p>}
-      {dark
-        ? <p className="cta-sub">Early access &amp; launch perks. No spam.</p>
-        : <p className="form-sub">Early access &amp; launch perks. No spam.</p>
-      }
+      <a href="#" aria-label="Instagram">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#141414" strokeWidth="1.7">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4.2" />
+          <circle cx="17.4" cy="6.6" r="1.1" fill="#141414" stroke="none" />
+        </svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#141414">
+          <path d="M13.5 22v-7.4h2.5l.4-2.9h-2.9V9.85c0-.84.23-1.41 1.44-1.41h1.54V5.85a20.6 20.6 0 0 0-2.24-.11c-2.22 0-3.74 1.35-3.74 3.84v2.14H8v2.9h2.5V22Z" />
+        </svg>
+      </a>
+      <a href="#" aria-label="X">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="#141414">
+          <path d="M17.6 3h3l-6.5 7.5L21.8 21h-5.9l-4.3-5.6L6.5 21H3.4l7-8L2.6 3h6l3.9 5.2L17.6 3Zm-1 16h1.6L8.1 4.6H6.4L16.6 19Z" />
+        </svg>
+      </a>
     </>
   );
 }
-
-// ── FAQ accordion ─────────────────────────────────────────────────────────────
-
-const faqs = [
-  { q: "Wait, what actually is Mealeo?", a: "Mealeo is a complete meal. In powder form. Mix it with water and you get a proper balance of protein, carbs, fats, fibre and 26 vitamins and minerals. Built for when life gets in the way of eating right." },
-  { q: "Is this just another protein shake?", a: "No. A protein shake tops up one nutrient. Mealeo is a full meal. Everything your body needs to stay full and energised, not just protein." },
-  { q: "Why drink a meal instead of just eating?", a: "You still can. Mealeo is for the days when cooking, planning or ordering food just isn’t happening. Busy days, lazy nights or when you just want to eat right without thinking about it." },
-  { q: "Is it safe? What’s in it?", a: "Yes. We use high-quality, 100% vegan ingredients and undergo regular testing. No preservatives, no hidden blends. The full ingredient list will be shared before launch." },
-  { q: "How much is it going to cost?", a: "Pricing drops at launch. The goal is to be more affordable than takeout without compromising on quality. Early waitlisters get special launch pricing." },
-  { q: "What if I have dietary restrictions?", a: "Mealeo is free from animal products, soy, dairy, eggs and added sugar. The full ingredient list will be shared before launch so you can check it yourself." },
-  { q: "How fast is it to make?", a: "Under 15 seconds. Scoop, shake, sip. Just a shaker bottle and water. That’s genuinely it." },
-  { q: "Why join now and not later?", a: "Early access, launch pricing and insider updates before anyone else. The first batch won’t last, and waitlist members are first in line." },
-];
-
-function FAQItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className={`faq-item${open ? " open" : ""}`}>
-      <button className="faq-q" onClick={() => setOpen(!open)}>
-        {q}
-        <span className="faq-arrow">+</span>
-      </button>
-      <div className="faq-a"><p>{a}</p></div>
-    </div>
-  );
-}
-
-// ── Macro bars with IntersectionObserver ──────────────────────────────────────
-
-const macros = [
-  { label: "Protein", value: "30g", width: 0.72 },
-  { label: "Healthy fats", value: "13g", width: 0.42 },
-  { label: "Total Carbs", value: "45g", width: 0.84, segments: [
-    { label: "Complex carbs", value: "35g", flex: 35, accent: false },
-    { label: "Dietary fibre", value: "10g", flex: 10, accent: true },
-  ]},
-];
-
-function MacroBars() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [animated, setAnimated] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setAnimated(true); },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div className="macro-bars" ref={ref}>
-      {macros.map(({ label, value, width, segments }) => (
-        <div className="macro-bar-row" key={label}>
-          <div className="macro-bar-header">
-            <strong>{label}</strong><span>{value}</span>
-          </div>
-          <div className="macro-bar-track">
-            {segments ? (
-              <div
-                className={`macro-bar-split${animated ? " animate" : ""}`}
-                style={animated ? { transform: `scaleX(${width})` } : {}}
-              >
-                {segments.map(seg => (
-                  <div
-                    key={seg.label}
-                    className={`macro-bar-segment${seg.accent ? " accent" : ""}`}
-                    style={{ flex: seg.flex }}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div
-                className={`macro-bar-fill${animated ? " animate" : ""}`}
-                style={animated ? { transform: `scaleX(${width})` } : {}}
-              />
-            )}
-          </div>
-          {segments && (
-            <div className="macro-bar-seg-labels" style={{ width: `${width * 100}%` }}>
-              {segments.map(seg => (
-                <div
-                  key={seg.label}
-                  className={`macro-bar-seg-label${seg.accent ? " accent" : ""}`}
-                  style={{ flex: seg.flex }}
-                >
-                  {seg.label} {seg.value}
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── Ingredients scroll ────────────────────────────────────────────────────────
-
-const ingredients = [
-  { img: "/ingredients/oats.avif", name: "Oat Flour" },
-  { img: "/ingredients/peas.avif", name: "Pea Protein" },
-  { img: "/ingredients/flaxseeds.avif", name: "Flaxseeds" },
-  { img: "/ingredients/coconut.avif", name: "Coconut" },
-  { img: "/ingredients/Brown rice.avif", name: "Brown Rice Protein" },
-  { img: "/ingredients/Sunflower seeds.avif", name: "Sunflower Seeds" },
-  { img: "/ingredients/Tapioca.avif", name: "Tapioca" },
-  { img: "/ingredients/yeast.avif", name: "Yeast Protein" },
-];
-
-function IngredientsScroll() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const scroll = (dir: "left" | "right") => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    const target = Math.max(0, Math.min(maxScroll, el.scrollLeft + (dir === "right" ? 260 : -260)));
-    el.scrollTo({ left: target, behavior: "smooth" });
-  };
-  return (
-    <div className="ing-scroll-wrap">
-      <div className="ing-scroll-btns">
-        <button className="ing-scroll-btn" onClick={() => scroll("left")} aria-label="Scroll left">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        </button>
-        <button className="ing-scroll-btn" onClick={() => scroll("right")} aria-label="Scroll right">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-        </button>
-      </div>
-      <div className="ingredients-scroll" ref={scrollRef}>
-        {ingredients.map(({ img, name }) => (
-          <div className="ing-item" key={name}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img} alt={name} className="ing-img" loading="lazy" />
-            <span className="ing-name">{name}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// ── Marquee items ─────────────────────────────────────────────────────────────
-
-const marqueeItems = [
-  { text: "Complete nutrition", accent: true },
-  { text: "No calorie tracking", accent: false },
-  { text: "Plant-based", accent: true },
-  { text: "Ready in 15 seconds", accent: false },
-  { text: "No cooking required", accent: true },
-  { text: "100% vegan", accent: false },
-  { text: "No added sugar", accent: true },
-  { text: "No preservatives", accent: false },
-  { text: "Non-GMO", accent: true },
-  { text: "Soy-free", accent: false },
-];
-
-// ── Main page ─────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const heroRef = useRef<HTMLElement>(null);
-  const ctaRef = useRef<HTMLElement>(null);
-  const benefitsRef = useRef<HTMLDivElement>(null);
-  const [heroVisible, setHeroVisible] = useState(true);
-  const [ctaVisible, setCtaVisible] = useState(false);
-  const [benefitsPage, setBenefitsPage] = useState(0);
-
-  useEffect(() => {
-    // Prevent Safari from restoring scroll position on refresh when a hash is in the URL
-    if (typeof window !== "undefined" && "scrollRestoration" in history) {
-      history.scrollRestoration = "manual";
-    }
-    const obs = new IntersectionObserver(([e]) => setHeroVisible(e.isIntersecting), { threshold: 0 });
-    if (heroRef.current) obs.observe(heroRef.current);
-    const obs2 = new IntersectionObserver(([e]) => setCtaVisible(e.isIntersecting), { threshold: 0 });
-    if (ctaRef.current) obs2.observe(ctaRef.current);
-    return () => { obs.disconnect(); obs2.disconnect(); };
-  }, []);
-
-  const handleBenefitsScroll = () => {
-    const el = benefitsRef.current;
-    if (!el) return;
-    setBenefitsPage(Math.round(el.scrollLeft / el.offsetWidth));
-  };
-
-  const showNavCta = !heroVisible && !ctaVisible;
+  const heroForm = useWaitlistForm();
+  const footerForm = useWaitlistForm();
 
   return (
-    <>
-      {/* MARQUEE */}
-      <div className="marquee-wrap">
-        <div className="marquee-track">
-          {[...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className={item.accent ? "accent" : ""}>{item.text}</span>
-          ))}
+    <div className="page-wrap">
+
+      {/* ── NAV ─────────────────────────────────────── */}
+      <nav className="main-nav">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/design-logo.png" alt="Mealeo" className="nav-logo" />
+      </nav>
+
+      {/* ── MOBILE-ONLY: full-bleed hero image with headline overlay ── */}
+      <div className="mobile-hero">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/hero.png" alt="Person holding a Mealeo shaker on a metro platform" className="hero-img-mob" />
+        <div className="mob-hero-gradient">
+          <h1 className="headline-mob">Never<br />skip a<br />meal again!</h1>
         </div>
       </div>
 
-      {/* NAV */}
-      <nav>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <a href="#"><img src="/web-logo.svg" alt="Mealeo" style={{ height: "2.8rem", width: "auto" }} /></a>
-        <a
-          href="#cta"
-          className="nav-cta"
-          style={{ opacity: showNavCta ? 1 : 0, pointerEvents: showNavCta ? "auto" : "none", transition: "opacity 0.3s ease" }}
-          onClick={(e) => { e.preventDefault(); document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" }); }}
-        >Join waitlist</a>
-      </nav>
+      {/* ── HERO SECTION ─────────────────────────────── */}
+      {/* Mobile: copy + form below hero image     */}
+      {/* Desktop: split — image left, copy right  */}
+      <section className="hero-section">
 
-      {/* HERO */}
-      <section className="hero" id="waitlist" ref={heroRef}>
-        <div className="container hero-layout">
-          <div className="hero-content">
-            <div className="hero-eyebrow">
-              <span className="hero-eyebrow-dot" />
-              Dropping soon in India
-            </div>
-            <div className="hero-title-row">
-              <h1>Meals made<br /><em>easier.</em></h1>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/shaker.png" alt="Mealeo shaker" className="hero-image-mobile" />
-            </div>
-            <p className="hero-sub">For people who looked up and realized it&apos;s 3pm and they still haven&apos;t eaten.</p>
-            <WaitlistForm />
-            <div className="hero-stats">
-              <div className="stat-item">
-                <span className="stat-num">30g</span>
-                <span className="stat-label">Protein per serving</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-num">26</span>
-                <span className="stat-label">Vitamins &amp; minerals</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-num">400</span>
-                <span className="stat-label">Calories per serving</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-num">&lt;15s</span>
-                <span className="stat-label">Prep time</span>
-              </div>
-            </div>
-          </div>
+        {/* Desktop-only left image pane */}
+        <div className="hero-img-pane">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/shaker-hand.svg" alt="Mealeo shaker" className="hero-image" />
+          <img src="/hero.png" alt="Person holding a Mealeo shaker on a metro platform" className="hero-img-desk" />
+        </div>
+
+        {/* Right / mobile copy pane */}
+        <div className="hero-copy-pane">
+          {/* Desktop-only headline (dark, in copy column) */}
+          <h1 className="headline-desk">Never<br />skip a<br />meal again!</h1>
+
+          <p className="hero-desc">
+            <span className="desk-only">Some days demand more from you.<br /></span>
+            A complete meal ready in 30 seconds.<br />Just scoop, shake &amp; go.
+          </p>
+
+          <form onSubmit={heroForm.handleSubmit} className="hero-form">
+            <input
+              type="email"
+              value={heroForm.email}
+              onChange={(e) => heroForm.resetEmail(e.target.value)}
+              placeholder="Your email*"
+              aria-label="Your email"
+            />
+            <button type="submit" disabled={heroForm.status === "loading"}>
+              {heroForm.btnLabel}
+            </button>
+          </form>
+
+          <div className="hero-note">
+            {heroForm.note
+              ? heroForm.note
+              : <span className="mob-idle-note">Get early access, launch perks and first-batch pricing.</span>
+            }
+          </div>
+
+          {/* Desktop-only powder accent */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/powder.png" alt="" aria-hidden="true" className="powder-img" />
         </div>
       </section>
 
-      {/* PROBLEM */}
-      <section className="problem-section">
-        <div className="container problem-layout">
-          <div className="problem-text">
-            <h2>Real talk. Eating well is actually hard.</h2>
+      {/* ── MARQUEE ─────────────────────────────────── */}
+      <section className="marquee-wrap">
+        <div className="marquee-track">
+          <div className="marquee-set">
+            {marqueeItems.map((item, i) => <span key={i}>{item}</span>)}
           </div>
-          <div className="problem-list">
-            {["Skipping meals and pretending it\u2019s fine", "Spending money on delivery, again", "Opening a calorie app and immediately giving up"].map((item) => (
-              <div className="problem-list-item crossed" key={item}>
-                <span className="problem-list-text">{item}</span>
-              </div>
-            ))}
-            <div className="problem-list-item solution">
-              <span className="problem-list-label">The fix</span>
-              <span className="problem-list-text">Mealeo. A complete meal in 15 seconds</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* BENEFITS */}
-      <section className="benefits-section">
-        <div className="container">
-          <h2 className="benefits-heading">What you get</h2>
-          <div className="benefits-slider" ref={benefitsRef} onScroll={handleBenefitsScroll}>
-            <div className="benefits-page">
-              {[
-                { n: "01", title: "Complete Nutrition", desc: "Everything your body actually needs. In every serving." },
-                { n: "02", title: "Ready in Seconds", desc: "No cooking. No prep. Scoop, shake, sip." },
-                { n: "03", title: "Keeps you Full", desc: "30g protein and slow-release carbs. Keeps you full for real." },
-              ].map(({ n, title, desc }) => (
-                <div className="benefit-card" key={n}>
-                  <span className="benefit-num">{n}</span>
-                  <div className="benefit-title">{title}</div>
-                  <div className="benefit-desc">{desc}</div>
-                </div>
-              ))}
-            </div>
-            <div className="benefits-page">
-              {[
-                { n: "04", title: "No Calorie Counting", desc: "We did the math so you don't have to." },
-                { n: "05", title: "Taste", desc: "Smooth chocolate. Made with Indonesian cocoa." },
-                { n: "06", title: "Plant-Based", desc: "100% vegan. Good for you, good for the planet." },
-              ].map(({ n, title, desc }) => (
-                <div className="benefit-card" key={n}>
-                  <span className="benefit-num">{n}</span>
-                  <div className="benefit-title">{title}</div>
-                  <div className="benefit-desc">{desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="benefits-dots">
-            <span className={`benefits-dot${benefitsPage === 0 ? " active" : ""}`} />
-            <span className={`benefits-dot${benefitsPage === 1 ? " active" : ""}`} />
+          <div className="marquee-set" aria-hidden="true">
+            {marqueeItems.map((item, i) => <span key={`b-${i}`}>{item}</span>)}
           </div>
         </div>
       </section>
 
-      {/* INGREDIENTS */}
-      <section className="ingredients-section">
-        <div className="container">
-          <div className="ingredients-header">
-            <h2>Made with actual food.<br />Formulated by nutritionists.</h2>
-            <p>Designed for your daily routine.</p>
-          </div>
-          <IngredientsScroll />
-        </div>
-      </section>
-
-      {/* MACROS */}
-      <section className="macro-section">
-        <div className="container macro-layout">
-          <div className="macro-text">
-            <h2>The perfect balance,<br />pre-calculated.</h2>
-            <p>We did the research so you don&apos;t have to. Every serving hits the right balance of protein, healthy fats and slow-release carbs, covering your daily nutritional needs with 26 essential vitamins and minerals.</p>
-            <MacroBars />
-            <div className="macro-vitamins">
-              <span className="vitamins-badge">26</span>
-              <span className="vitamins-text">Essential vitamins &amp; minerals for complete daily nutrition.</span>
-            </div>
-          </div>
-
-          <div className="nutrition-card">
-            <div className="nutrition-title">Nutrition Facts</div>
-            <div className="nutrition-serving">Per serving (100g), Chocolate</div>
-            <hr className="nutrition-divider" />
-            <div className="nutrition-row">
-              <span>Calories</span>
-              <span className="nutrition-cal">400</span>
-            </div>
-            <hr style={{ border: "none", borderTop: "4px solid var(--black)", margin: "4px 0" }} />
-            <div className="nutrition-row major"><span>Total Fat</span><span>13g</span></div>
-            <hr className="nutrition-divider-thin" />
-            <div className="nutrition-row major"><span>Total Carbohydrate</span><span>45g</span></div>
-            <div className="nutrition-row sub"><span>Dietary fibre</span><span>10g</span></div>
-            <div className="nutrition-row sub"><span>Added sugars</span><span>0g</span></div>
-            <hr className="nutrition-divider-thin" />
-            <div className="nutrition-row major"><span>Protein</span><span>30g</span></div>
-            <hr className="nutrition-divider-thin" />
-            <div className="nutrition-row" style={{ marginTop: 8, paddingTop: 8, borderTop: "1px solid var(--warm-gray)" }}>
-              <span style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>Vitamins &amp; Minerals</span>
-              <span style={{ fontSize: "0.78rem", fontWeight: 500 }}>26 essential</span>
-            </div>
-            <div className="nutrition-row sub"><span>Vitamin D</span><span>39% RDA</span></div>
-            <div className="nutrition-row sub"><span>Calcium</span><span>22% RDA</span></div>
-            <div className="nutrition-row sub"><span>Vitamin B12</span><span>91% RDA</span></div>
-            <div className="nutrition-row sub"><span>+ 23 more</span><span></span></div>
-            <hr className="nutrition-divider-thin" style={{ marginTop: "1rem" }} />
-            <p style={{ fontSize: "0.7rem", color: "var(--text-muted)", marginTop: 8, lineHeight: 1.5 }}>
-              *% Daily Values are based on Indian RDA. Nutritional values are per 100g serving.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="faq-section">
-        <div className="container faq-layout">
-          <div className="faq-sticky">
-            <span className="section-label">FAQ</span>
-            <h2>Questions,<br />answered.</h2>
-          </div>
-          <div className="faq-items">
-            {faqs.map((faq) => <FAQItem key={faq.q} {...faq} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="cta-section" id="cta" ref={ctaRef}>
-        <div className="container" style={{ maxWidth: 680, textAlign: "center" }}>
-          <h2>Eating well should be easier.</h2>
-          <p>Early access, launch perks and first-batch pricing. Your future self will thank you.</p>
-          <WaitlistForm dark />
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer>
-        <span className="footer-copy">© 2025 Mealeo. All rights reserved.</span>
+      {/* ── MOBILE FOOTER ───────────────────────────── */}
+      <footer className="footer-mobile">
+        <h2 className="footer-tagline-mob">Eating well<br />should be easier.</h2>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <a href="#"><img src="/TM.png" alt="Mealeo" style={{ height: "4.48rem", width: "auto" }} /></a>
+        <img src="/design-logo.png" alt="Mealeo" className="footer-logo-mob" />
+        <div className="footer-social-mob"><SocialIcons /></div>
+        <div className="footer-copy-mob">© 2026 MEALEO<br />All rights reserved.</div>
       </footer>
-    </>
+
+      {/* ── DESKTOP FOOTER ──────────────────────────── */}
+      <footer className="footer-desktop">
+        <div className="footer-top">
+          <h2 className="footer-tagline-desk">Built<br />for<br />big<br />days.</h2>
+
+          <div className="footer-form-col">
+            <div className="footer-heading">Eating well should be easier.</div>
+            <p className="footer-sub">Get early access, launch perks and first-batch pricing.</p>
+            <form onSubmit={footerForm.handleSubmit} className="footer-form">
+              <input
+                type="email"
+                value={footerForm.email}
+                onChange={(e) => footerForm.resetEmail(e.target.value)}
+                placeholder="Email address"
+                aria-label="Email address"
+              />
+              <button type="submit" disabled={footerForm.status === "loading"}>
+                {footerForm.btnLabel}
+              </button>
+            </form>
+            <div className="footer-note">{footerForm.note}</div>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <div className="footer-copy-desk">© 2026 MEALEO<br />All rights reserved.</div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/design-logo.png" alt="Mealeo" className="footer-logo-desk" />
+          <div className="footer-social-desk"><SocialIcons /></div>
+        </div>
+      </footer>
+
+    </div>
   );
 }
