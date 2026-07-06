@@ -90,7 +90,7 @@ export default function Home() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/hero.png" alt="Person holding a Mealeo shaker on a metro platform" className="hero-img-mob" />
         <div className="mob-hero-gradient">
-          <h1 className="headline-mob">Never<br />skip a<br />meal again!</h1>
+          <h1 className="headline-mob">Eating well<br />was never<br />this easy.</h1>
         </div>
       </div>
 
@@ -108,11 +108,10 @@ export default function Home() {
         {/* Right / mobile copy pane */}
         <div className="hero-copy-pane">
           {/* Desktop-only headline (dark, in copy column) */}
-          <h1 className="headline-desk">Never<br />skip a<br />meal again!</h1>
+          <h1 className="headline-desk">Eating well<br />was never<br />this easy.</h1>
 
           <p className="hero-desc">
-            <span className="desk-only">Some days demand more from you.<br /></span>
-            A complete meal ready in 30 seconds.<br />Just scoop, shake &amp; go.
+            A complete plant-based meal ready in 30 seconds.<br />Just scoop, shake &amp; go.
           </p>
 
           <form onSubmit={heroForm.handleSubmit} className="hero-form">
