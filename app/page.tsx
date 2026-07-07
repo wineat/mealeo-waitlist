@@ -48,30 +48,6 @@ function useWaitlistForm() {
   return { email, note, status, btnLabel, handleSubmit, resetEmail };
 }
 
-function SocialIcons() {
-  return (
-    <>
-      <a href="#" aria-label="Instagram">
-        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#141414" strokeWidth="1.7">
-          <rect x="3" y="3" width="18" height="18" rx="5" />
-          <circle cx="12" cy="12" r="4.2" />
-          <circle cx="17.4" cy="6.6" r="1.1" fill="#141414" stroke="none" />
-        </svg>
-      </a>
-      <a href="#" aria-label="Facebook">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#141414">
-          <path d="M13.5 22v-7.4h2.5l.4-2.9h-2.9V9.85c0-.84.23-1.41 1.44-1.41h1.54V5.85a20.6 20.6 0 0 0-2.24-.11c-2.22 0-3.74 1.35-3.74 3.84v2.14H8v2.9h2.5V22Z" />
-        </svg>
-      </a>
-      <a href="#" aria-label="X">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="#141414">
-          <path d="M17.6 3h3l-6.5 7.5L21.8 21h-5.9l-4.3-5.6L6.5 21H3.4l7-8L2.6 3h6l3.9 5.2L17.6 3Zm-1 16h1.6L8.1 4.6H6.4L16.6 19Z" />
-        </svg>
-      </a>
-    </>
-  );
-}
-
 export default function Home() {
   const heroForm = useWaitlistForm();
   const footerForm = useWaitlistForm();
@@ -157,7 +133,6 @@ export default function Home() {
         <h2 className="footer-tagline-mob">Built<br />for<br />big<br />days.</h2>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/design-logo.png" alt="Mealeo" className="footer-logo-mob" />
-        <div className="footer-social-mob"><SocialIcons /></div>
         <div className="footer-copy-mob">© 2026 MEALEO<br />All rights reserved.</div>
       </footer>
 
@@ -189,7 +164,6 @@ export default function Home() {
           <div className="footer-copy-desk">© 2026 MEALEO<br />All rights reserved.</div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/design-logo.png" alt="Mealeo" className="footer-logo-desk" />
-          <div className="footer-social-desk"><SocialIcons /></div>
         </div>
       </footer>
 
