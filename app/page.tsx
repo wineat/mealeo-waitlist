@@ -103,8 +103,16 @@ export default function Home() {
             </button>
           </form>
 
-          <div className="hero-note">
-            {heroForm.note
+          <div className={`hero-note${heroForm.status === "success" ? " is-success" : ""}${heroForm.status === "error" ? " is-error" : ""}`}>
+            {heroForm.status === "success" ? (
+              <span className="note-success-inner">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="#141414" />
+                  <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="#c9f04a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                {heroForm.note}
+              </span>
+            ) : heroForm.note
               ? heroForm.note
               : <span className="mob-idle-note">Get early access, launch perks and first-batch pricing.</span>
             }
@@ -156,7 +164,17 @@ export default function Home() {
                 {footerForm.btnLabel}
               </button>
             </form>
-            <div className="footer-note">{footerForm.note}</div>
+            <div className={`footer-note${footerForm.status === "success" ? " is-success" : ""}${footerForm.status === "error" ? " is-error" : ""}`}>
+              {footerForm.status === "success" ? (
+                <span className="note-success-inner">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="8" fill="#141414" />
+                    <path d="M4.5 8.2L6.8 10.5L11.5 5.5" stroke="#c9f04a" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  {footerForm.note}
+                </span>
+              ) : footerForm.note}
+            </div>
           </div>
         </div>
 

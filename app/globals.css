@@ -171,6 +171,35 @@ body {
 /* Idle hint text — shown on mobile, hidden on desktop */
 .mob-idle-note { /* inherits .hero-note */ }
 
+/* Success / error emphasis — shared by hero-note and footer-note */
+.hero-note.is-success,
+.footer-note.is-success {
+  min-height: 0;
+  height: auto;
+}
+.hero-note.is-error,
+.footer-note.is-error {
+  font-weight: 600;
+  color: #c0392b;
+}
+
+/* Success banner — full-width card so it can't be missed, especially on mobile */
+.note-success-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #141414;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 10px 14px;
+  border-radius: 8px;
+}
+.note-success-inner svg { flex-shrink: 0; }
+.note-success-inner svg circle { fill: #c9f04a; }
+.note-success-inner svg path { stroke: #141414; }
+
 /* ── MARQUEE ─────────────────────────────────────────────────────────────────── */
 
 .marquee-wrap {
@@ -375,6 +404,7 @@ body {
     color: #404240;
     min-height: unset;
   }
+  .hero-note.is-success { height: auto; max-width: 475px; }
   .mob-idle-note { display: none; }
 
   /* Powder accent — behind text via natural stacking order, pointer-events off */
@@ -498,6 +528,7 @@ body {
     font-size: 12px;
     color: #404240;
   }
+  .footer-note.is-success { height: auto; max-width: 360px; }
 
   /* Bottom bar — flex pushes this to the bottom of the 407px footer */
   .footer-bottom {
